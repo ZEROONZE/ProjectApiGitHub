@@ -22,7 +22,7 @@ export const Sliderbar = ({ children }) => {
   const showSubnav = () => setSubnav(!subnav);
   const menuItem = [
     {
-      path: "/texto",
+      path: "/diagrama",
       name: "Dasboard",
       icon: <IoBarChartOutline />,
     },
@@ -93,7 +93,7 @@ export const Sliderbar = ({ children }) => {
       icon: <TbUsers />,
     },
     {
-      path: "/home",
+      path: "/boot",
       name: "sair",
       icon: <TbDoorExit />,
     },

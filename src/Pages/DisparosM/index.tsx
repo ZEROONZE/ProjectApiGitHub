@@ -47,6 +47,7 @@ const Disparos: React.FC = () => {
               <h2>Planilha de disparos</h2>
             </label>
           </form>
+
           <button onClick={() => SetDownloand(UrlDownloand)} className="buttom">
             Download da planilha
           </button>

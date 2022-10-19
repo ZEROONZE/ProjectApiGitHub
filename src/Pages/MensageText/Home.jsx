@@ -1,23 +1,57 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import api from "../../hooks/Api";
 import { Container } from "./styles";
 import { ColorRing } from "react-loader-spinner";
 import { Alert } from "@mui/material";
+import { Boot } from "../Boot";
+import axios from "axios";
+import Button from "@mui/material/Button";
+import SendIcon from "@mui/icons-material/Send";
+
+import Add from "@mui/icons-material/Add";
+
+const initialValues = {
+  title: "",
+  mensage: "",
+};
 
 export const MensageText = () => {
   const [alertt, setAlertt] = useState(false);
   const [alerterr, setAlerterr] = useState(false);
-  const [text, setText] = useState("");
+  const [alertcriar, setAlertcriar] = useState(false);
+  const [mensage, setMensage] = useState("");
   const [number, setNumber] = useState("");
   const [loading, setLoading] = useState(false);
   const [alertContent, setAlertContent] = useState("");
+
+  const [values, setValues] = useState(initialValues);
+  function onChange(ev) {
+    const { name, value } = ev.target;
+    setMensage(ev.target.value);
+    setValues({ ...values, [name]: value });
+  }
+
+  function onSubmit2(ev) {
+    ev.preventDefault();
+    axios
+      .post("http://localhost:3000/posts", values)
+
+      .then((response) => {
+        console.log(response.data);
+        setAlertcriar(true);
+      })
+      .catch((error) => {
+        console.log(error);
+        alert("not");
+      });
+  }
 
   async function Submit() {
     setLoading(true);
     await api
       .post(
         "/send_message",
-        { number: number, message: text },
+        { number: number, message: mensage },
         {
           headers: {
             "Content-Type": "application/json",
@@ -25,6 +59,7 @@ export const MensageText = () => {
           },
         }
       )
+
       .then((response) => {
         console.log(response.data);
         setAlertContent(response.data.result);
@@ -83,13 +118,33 @@ export const MensageText = () => {
       ) : (
         <></>
       )}
-
+      {alertcriar ? (
+        <Alert
+          style={{
+            width: "19rem",
+            height: "37px",
+            position: "absolute",
+            right: "7px",
+            transition: "all 0.5s",
+            boxShadow: "2px 2px 9px rgba(0, 0, 0, 0.1)",
+            zIndex: "9",
+          }}
+          className="alert"
+          severity="info"
+          onClose={(event) => setAlertcriar(false)}
+        >
+          Menssagem criada!
+          {alertContent}
+        </Alert>
+      ) : (
+        <></>
+      )}
       <div className="container-form">
         <div className="title-form">
           <h3>Enviar mensagem</h3>
           <p className="title-border"></p>
         </div>
-        <form>
+        <form onSubmit={onSubmit2}>
           <label> Numero: </label>
           <input
             type="text"
@@ -98,15 +153,20 @@ export const MensageText = () => {
             onChange={(e) => {
               setNumber(e.target.value);
             }}
+            id="mensage"
+            name="mensage"
             value={number}
           />
 
-          <label> Mensagem: </label>
+          <label htmlFor="mensage"> Mensagem: </label>
           <textarea
-            value={text}
-            onChange={(e) => {
-              setText(e.target.value);
+            value={mensage}
+            id="mensage"
+            onChange={(ev) => {
+              onChange(ev);
             }}
+            name="mensage"
+            type="text"
             className="mensage-input"
             placeholder="Digite sua menssagem de texto..."
           />
@@ -118,10 +178,27 @@ export const MensageText = () => {
               wrapperStyle={{ margin: "auto" }}
             />
           ) : (
-            <button onClick={Submit} disabled={loading} className="buttom">
-              Enviar
-            </button>
+            <div className="buttons-form">
+              <Button
+                variant="contained"
+                type="submit"
+                style={{ margin: "1rem" }}
+                endIcon={<Add />}
+                className="button-add"
+              >
+                CRIAR
+              </Button>
 
+              <Button
+                variant="contained"
+                onClick={Submit}
+                disabled={loading}
+                endIcon={<SendIcon />}
+                style={{ background: "rgb(8, 203, 148)", color: "#fff" }}
+              >
+                Enviar
+              </Button>
+            </div>
             // {/* /* <Alert
             //   severity="success"
             //   icon={<Check fontSize="inherit" />}
@@ -145,12 +222,13 @@ export const MensageText = () => {
         </div>
 
         <div className="nome-whats1">
-          <p className="nome-whats">{text}</p>
+          <p className="nome-whats">{mensage}</p>
         </div>
         <br />
         <br />
         <br />
       </div>
+      {/* <Boot /> */}
     </Container>
   );
 };

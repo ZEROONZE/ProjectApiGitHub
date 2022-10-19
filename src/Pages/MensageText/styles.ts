@@ -112,6 +112,16 @@ export const Container = styled.div`
     margin-top: 0.3rem;
     margin-bottom: 1rem;
   }
+  .buttons-form {
+    margin: auto;
+    justify-content: center;
+    text-align: center;
+    gap: 10px;
+  }
+  .button-add {
+    margin-left: -20px;
+    padding-right: 5px;
+  }
   form {
     display: flex;
     flex-direction: column;
