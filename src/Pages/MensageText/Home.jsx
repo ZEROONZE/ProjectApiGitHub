@@ -1,9 +1,9 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import api from "../../hooks/Api";
 import { Container } from "./styles";
 import { ColorRing } from "react-loader-spinner";
 import { Alert } from "@mui/material";
-import { Boot } from "../Boot";
+
 import axios from "axios";
 import Button from "@mui/material/Button";
 import SendIcon from "@mui/icons-material/Send";
@@ -11,10 +11,38 @@ import SendIcon from "@mui/icons-material/Send";
 import Add from "@mui/icons-material/Add";
 
 const initialValues = {
-  title: "",
-  mensage: "",
+  rootNode: {
+    id: "rootNode",
+    type: "text",
+    name: "welcome",
+    text: "",
+    next: "abc1",
+  },
+  abc1: {
+    id: "abc1",
+    type: "options",
+    name: "ja_cliente",
+    text: "Você já é nosso cliente?",
+    options: [
+      {
+        id: "1",
+        name: "cliente",
+        view: true,
+        text: "Sim",
+        descricao: "Já Sou Cliente",
+        next: "abc1-5",
+      },
+      {
+        id: "2",
+        name: "cliente",
+        view: true,
+        text: "Não",
+        descricao: "Ainda não Sou Cliente",
+        next: "abc5",
+      },
+    ],
+  },
 };
-
 export const MensageText = () => {
   const [alertt, setAlertt] = useState(false);
   const [alerterr, setAlerterr] = useState(false);
@@ -194,7 +222,7 @@ export const MensageText = () => {
                 onClick={Submit}
                 disabled={loading}
                 endIcon={<SendIcon />}
-                style={{ background: "rgb(8, 203, 148)", color: "#fff" }}
+                style={{ background: "rgb(8, 203, 148)", color: "#a5a3a3" }}
               >
                 Enviar
               </Button>

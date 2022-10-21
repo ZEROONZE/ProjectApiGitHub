@@ -1,20 +1,3 @@
-// import React from "react";
-// import ReactFlow from "react-flow-renderer";
-
-// const elements = [
-//   { id: "1", data: { label: "Node 1" }, position: { x: 280, y: 150 } },
-//   { id: "2", data: { label: <div>Node 2</div> }, position: { x: 280, y: 150 } },
-//   { id: "e1-2", source: "1", target: "2", animated: true },
-// ];
-
-// export const Diagrama = () => {
-//   return (
-//     <div style={{ width: "100%", height: "80vh" }}>
-//       <h1>teste</h1>
-//       <ReactFlow elements={elements} />
-//     </div>
-//   );
-// };
 import { Alert } from "@mui/material";
 
 import Button from "@mui/material/Button";
@@ -93,105 +76,249 @@ const initialEdges = [
   },
 ];
 
-const initialValues = {
-  title: "",
-  mensage: "",
-  mensage2: "",
-  mensage3: String,
-  mensage4: "",
-  mensage5: "",
-  mensage6: "",
-  mensage7: "",
-  mensage8: "",
-};
+// const initialValues = {
+//   rootNode: {
+//     id: "rootNode",
+//     type: "text",
+//     name: "welcome",
+//     text: "",
+//     next: "abc1",
+//   },
+//   abc1: {
+//     id: "abc1",
+//     type: "options",
+//     name: "ja_cliente",
+//     text: "Você já é nosso cliente?",
+//     options: [
+//       {
+//         id: "1",
+//         name: "cliente",
+//         view: true,
+//         text: "Sim",
+//         descricao: "Já Sou Cliente",
+//         next: "abc1-5",
+//       },
+//       {
+//         id: "2",
+//         name: "cliente",
+//         view: true,
+//         text: "Não",
+//         descricao: "Ainda não Sou Cliente",
+//         next: "abc5",
+//       },
+//     ],
+//   },
+//   "abc1-5": {
+//     id: "abc1",
+//     type: "options",
+//     name: "novoProduto",
+//     text: "Voce gostaria de adquirir um novo plano de internet Residencial/Empresarial?",
+//     options: [
+//       {
+//         id: "1",
+//         name: "novoProduto",
+//         view: true,
+//         text: "Sim",
+//         descricao: "Sim",
+//         next: "abc5",
+//       },
+//       {
+//         id: "2",
+//         name: "novoProduto",
+//         view: true,
+//         text: "Não",
+//         descrica: "Não",
+//         next: "abc2",
+//       },
+//     ],
+//   },
+// };
 
 export const Diagrama = () => {
-  const [values, setValues] = useState(initialValues);
   const [alertcriar, setAlertcriar] = useState(false);
   const [alertContent, setAlertContent] = useState("");
-  const [mensage3, setMensage3] = useState(initialValues);
-  const [mensage1, setMensage1] = useState("");
+  const [inputList, setInputList] = useState([
+    // id: "rootNode",
+    // name: "text",
+    // typeInput: "input",
+    // type: "text",
+    // placeholder: "Nome",
+    // text: "",
+    // next: "abc1",
+
+    {
+      rootNode: [
+        {
+          id: "rootNodee",
+          name: "text",
+          typeInput: "input",
+          type: "text",
+          placeholder: "Nome",
+          text: "",
+          next: "abc1",
+        },
+      ],
+    },
+
+    // {
+    //   abc1: {
+    //     id: "abc1",
+    //     type: "options",
+    //     name: "ja_cliente",
+    //     text: "Você já é nosso cliente?",
+    //     options: [
+    //       {
+    //         id: "1",
+    //         name: "cliente",
+    //         view: true,
+    //         text: "Sim",
+    //         descricao: "Já Sou Cliente",
+    //         next: "abc1-5",
+    //       },
+    //       {
+    //         id: "2",
+    //         name: "cliente",
+    //         view: true,
+    //         text: "Não",
+    //         descricao: "Ainda não Sou Cliente",
+    //         next: "abc5",
+    //       },
+    //     ],
+    //   },
+    // },
+    // {
+    //   abc15: {
+    //     id: "abc1",
+    //     type: "options",
+    //     name: "novoProduto",
+    //     text: "Voce gostaria de adquirir um novo plano de internet Residencial/Empresarial?",
+    //     options: [
+    //       {
+    //         id: "1",
+    //         name: "novoProduto",
+    //         view: true,
+    //         text: "Sim",
+    //         descricao: "Sim",
+    //         next: "abc5",
+    //       },
+    //       {
+    //         id: "2",
+    //         name: "novoProduto",
+    //         view: true,
+    //         text: "Não",
+    //         descricao: "Não",
+    //         next: "abc2",
+    //       },
+    //     ],
+    //   },
+    // },
+  ]);
+
+  const handleInputChange = (e, index) => {
+    const { name, value } = e.target;
+    const list = [...inputList];
+
+    list[index][name] = value;
+    setInputList(list);
+  };
 
   const initialNodes = [
     {
       id: "inicio",
       sourcePosition: "right",
       targetPosition: "left",
-      type: "text",
       data: {
         label: (
-          <TextareaAutosize
-            className="input-text2"
-            id="title"
-            name="title"
-            type="text"
-            onChange={onChange}
-          />
+          <div>
+            {inputList.map((item, subindex) => (
+              <form onSubmit={onSubmit2} key={subindex}>
+                {item.rootNode.map((item, index) => (
+                  <TextareaAutosize
+                    key={index}
+                    name={item.name}
+                    type={item.type}
+                    className="input-text"
+                    placeholder={item.placeholder}
+                    id={item.name}
+                    onChange={(e) => handleInputChange(e, index)}
+                  />
+                ))}
+              </form>
+            ))}
+          </div>
         ),
       },
       position: { x: 10, y: 30 },
     },
-    {
-      id: "mensagem-1",
-      sourcePosition: "right",
-      targetPosition: "left",
-      data: {
-        label: <TextareaAutosize id="mensage" type="text" name="mensage" />,
-      },
-      position: { x: 250, y: -70 },
-    },
-    {
-      id: "mensagem-2",
-      sourcePosition: "right",
-      targetPosition: "left",
-      data: {
-        label: (
-          <InputBoot
-            className="input-text"
-            id="mensage1"
-            name="mensage1"
-            type="text"
-            onChange={onChange}
-          />
-        ),
-      },
-      position: { x: 250, y: 150 },
-    },
-    {
-      id: "mensagem-3",
-      sourcePosition: "right",
-      targetPosition: "left",
-      data: {
-        label: (
-          <Input
-            className="input-text"
-            id="mensage3"
-            name="mensage3"
-            type="text"
-            onChange={onChange}
-          />
-        ),
-      },
-      position: { x: 500, y: -120 },
-    },
-    {
-      id: "mensagem-5",
-      sourcePosition: "right",
-      targetPosition: "left",
+    // {
+    //   id: "mensagem-1",
+    //   sourcePosition: "right",
+    //   targetPosition: "left",
+    //   data: {
+    //     label: (
+    //       <TextareaAutosize
+    //         className="input-text"
+    //         id="mensage"
+    //         type="text"
+    //         name="mensage"
+    //       />
+    //     ),
+    //   },
+    //   position: { x: 250, y: -70 },
+    // },
+    // {
+    //   id: "mensagem-2",
+    //   sourcePosition: "right",
+    //   targetPosition: "left",
+    //   data: {
+    //     label: (
+    //       <InputBoot
+    //         className="input-text"
+    //         id="mensage1"
+    //         name="mensage1"
+    //         type="text"
+    //         onChange={() => onChange()}
+    //       />
+    //     ),
+    //   },
+    //   position: { x: 250, y: 150 },
+    // },
+    // {
+    //   id: "mensagem-3",
+    //   sourcePosition: "right",
+    //   targetPosition: "left",
+    //   data: {
+    //     label: (
+    //       <Input
+    //         className="input-text"
+    //         id="mensage3"
+    //         name="mensage3"
+    //         type="text"
+    //         onChange={() => onChange()}
+    //       />
+    //     ),
+    //   },
+    //   position: { x: 500, y: -120 },
+    // },
+    // {
+    //   id: "mensagem-5",
+    //   sourcePosition: "right",
+    //   targetPosition: "left",
 
-      data: {
-        label: (
-          <Input
-            className="input-text"
-            id="mensage4"
-            name="mensage4"
-            type="text"
-            onChange={onChange}
-          />
-        ),
-      },
-      position: { x: 500, y: -19 },
-    },
+    //   data: {
+    //     label: (
+    //       <Input
+    //         className="input-text"
+    //         id="mensage4"
+    //         name="mensage4"
+    //         type="text"
+    //         onSubmit={onSubmit2()}
+    //         onChange={() => onChange()}
+    //       />
+    //     ),
+    //   },
+    //   position: { x: 500, y: -19 },
+    // },
     // {
     //   id: "mensagem-4",
     //   sourcePosition: "right",
@@ -274,13 +401,15 @@ export const Diagrama = () => {
     // },
   ];
 
-  async function onSubmit2(ev) {
-    ev.preventDefault();
+  async function onSubmit2(e) {
+    e.preventDefault();
+
     await axios
-      .post("http://localhost:3000/posts", values)
+      .post("http://localhost:3000/posts", inputList)
 
       .then((response) => {
         console.log(response.data);
+
         setAlertcriar(true);
       })
       .catch((error) => {
@@ -289,11 +418,15 @@ export const Diagrama = () => {
       });
   }
 
-  function onChange(ev) {
-    const { id, value } = ev.target;
+  // // function onChange(e) {
+  // //   let user = { ...values };
 
-    setValues({ ...values, [id]: value });
-  }
+  // //   setText(e.target.value);
+  // //   user[e.target.name] = e.target.value;
+  //   // const { name, value } = ev.target.value;
+
+  //   // setValues({ ...values, [ev.target.name]: value });
+  // }
 
   const [nodes, setNodes, onNodesChange] = useNodesState(initialNodes);
   const [edges, setEdges, onEdgesChange] = useEdgesState(initialEdges);
@@ -303,7 +436,7 @@ export const Diagrama = () => {
   );
 
   return (
-    <Container onSubmit={onSubmit2}>
+    <Container>
       {alertcriar ? (
         <Alert
           style={{
@@ -325,15 +458,9 @@ export const Diagrama = () => {
       ) : (
         <></>
       )}
-      {nodes.map((item, index) => {
-        <div onSubmit={onSubmit2} key={index}>
-          <form onSubmit={onSubmit2}>{item.data.label}</form>
-        </div>;
-      })}
 
       <ReactFlow
         className="ReactFlow"
-        onSubmit={onSubmit2}
         edges={edges}
         nodes={nodes}
         onNodesChange={onNodesChange}
@@ -350,7 +477,7 @@ export const Diagrama = () => {
         >
           Criar fluxo
         </Button>
-        <div style={{ zIndex: "999999" }}>
+        {/* <div style={{ zIndex: "999999" }}>
           {nodes.map((item, index) => {
             <form onSubmit={onSubmit2} key={index}>
               <h1>teste</h1>
@@ -358,7 +485,7 @@ export const Diagrama = () => {
               <input></input>
             </form>;
           })}
-        </div>
+        </div> */}
       </ReactFlow>
     </Container>
   );

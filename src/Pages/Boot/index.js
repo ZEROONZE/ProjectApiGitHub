@@ -2,25 +2,145 @@ import React, { useState } from "react";
 import Button from "@mui/material/Button";
 import Input from "@mui/material/Input";
 import axios from "axios";
+import { useForm } from "react-hook-form";
 
-const initialValues = {
-  title: "",
-  mensage: "",
-};
+// const initialValues = {
+//   rootNode: {
+//     type: "text",
+//     name: "welcome",
+//     text: "",
+//     next: "abc1",
+//   },
+
+//   // },
+//   // abc1: {
+//   //   type: "options",
+//   //   name: "ja_cliente",
+//   //   text: "Você já é nosso cliente?",
+//   //   options: [
+//   //     {
+//   //       name: "cliente",
+//   //       view: true,
+//   //       text: "Sim",
+//   //       descricao: "Já Sou Cliente",
+//   //       next: "abc1-5",
+//   //     },
+//   //     {
+//   //       name: "cliente",
+//   //       view: true,
+//   //       text: "Não",
+//   //       descricao: "Ainda não Sou Cliente",
+//   //       next: "abc5",
+//   //     },
+//   //   ],
+//   // },
+// };
 
 export const Boot = () => {
-  const [values, setValues] = useState(initialValues);
+  // const [values, setValues] = useState(initialValues);
+  // const { register, handleSubmit } = useForm(initialValues);
+  const [inputList, setInputList] = useState([
+    // id: "rootNode",
+    // name: "text",
+    // typeInput: "input",
+    // type: "text",
+    // placeholder: "Nome",
+    // text: "",
+    // next: "abc1",
 
-  function onChange(ev) {
-    const { name, value } = ev.target;
+    {
+      rootNode: {
+        id: "rootNodee",
+        name: "text",
+        typeInput: "input",
+        type: "text",
+        placeholder: "Nome",
+        text: "",
+        next: "abc1",
+      },
+    },
+    // {
+    //   abc1: {
+    //     id: "abc1",
+    //     type: "options",
+    //     name: "ja_cliente",
+    //     text: "Você já é nosso cliente?",
+    //     options: [
+    //       {
+    //         id: "1",
+    //         name: "cliente",
+    //         view: true,
+    //         text: "Sim",
+    //         descricao: "Já Sou Cliente",
+    //         next: "abc1-5",
+    //       },
+    //       {
+    //         id: "2",
+    //         name: "cliente",
+    //         view: true,
+    //         text: "Não",
+    //         descricao: "Ainda não Sou Cliente",
+    //         next: "abc5",
+    //       },
+    //     ],
+    //   },
+    // },
+    // {
+    //   abc15: {
+    //     id: "abc1",
+    //     type: "options",
+    //     name: "novoProduto",
+    //     text: "Voce gostaria de adquirir um novo plano de internet Residencial/Empresarial?",
+    //     options: [
+    //       {
+    //         id: "1",
+    //         name: "novoProduto",
+    //         view: true,
+    //         text: "Sim",
+    //         descricao: "Sim",
+    //         next: "abc5",
+    //       },
+    //       {
+    //         id: "2",
+    //         name: "novoProduto",
+    //         view: true,
+    //         text: "Não",
+    //         descricao: "Não",
+    //         next: "abc2",
+    //       },
+    //     ],
+    //   },
+    // },
+  ]);
 
-    setValues({ ...values, [name]: value });
-  }
+  // function onChange(ev) {
+  //   const { name, value } = ev.target;
+  //   setText({ ...values.rootNode.text });
+  //   setValues({ ...values, [name]: value });
+  // }
+  // const {rootNode: text} = initialValues
 
-  function onSubmit(ev) {
-    ev.preventDefault();
+  const handleInputChange = (e, index) => {
+    const { name, value } = e.target;
+    const list = [...inputList];
+    list[index][name] = value;
+    setInputList(list);
+  };
+
+  // const handleChange = (event) => {
+  //   setValues({
+  //     ...values,
+  //     [initialValues.rootNode.text]: {
+  //       ...(values.rootNode.text[initialValues.rootNode.text] ?? {}),
+  //       text: event.target.value,
+  //     },
+  //   });
+  // };
+
+  function onSubmit(e) {
+    e.preventDefault();
     axios
-      .post("http://localhost:3000/posts", values)
+      .post("http://localhost:3000/posts", inputList)
 
       .then((response) => {
         console.log(response.data);
@@ -34,14 +154,24 @@ export const Boot = () => {
 
   return (
     <div id="formulario">
-      <form onSubmit={onSubmit}>
-        <div>
-          <label> Nome: </label>
-          <Input type="text" id="title" name="title" onChange={onChange} />
-        </div>
+      <form onSubmit={(e) => onSubmit(e)}>
+        {inputList.map((item, index) => (
+          <div>
+            <label> Nome: </label>
+            {console.log(item.rootNode.placeholder)}
+            <Input
+              key={index}
+              name={item.rootNode.name}
+              type={item.rootNode.type}
+              placeholder={item.rootNode.placeholder}
+              id={item.rootNode.name}
+              onChange={(e) => handleInputChange(e, index)}
+            />
+          </div>
+        ))}
         <div>
           <label htmlFor=""> Menssagem: </label>
-          <Input type="text" id="mensage" name="mensage" onChange={onChange} />
+          <Input type="text" id="text" name="text" />
         </div>
 
         <div style={{ marginTop: "1rem" }}>
@@ -53,20 +183,6 @@ export const Boot = () => {
           </Button>
         </div>
       </form>
-      {/* <table style={{ padding: "10px" }}>
-        <thead style={{ margin: "20px" }}>
-          <th style={{ margin: "20px" }}>ID</th>
-          <th style={{ padding: "20px" }}>PRODUTO</th>
-          <th>VALOR</th>
-        </thead>
-        <tbody id="tbody">
-          <tr>
-            <td style={{ margin: "30px" }}>1</td>
-            <td style={{ margin: "20px" }}>Nome</td>
-            <td style={{ padding: "20px" }}>Mensg</td>
-          </tr>
-        </tbody>
-      </table> */}
     </div>
   );
 };
