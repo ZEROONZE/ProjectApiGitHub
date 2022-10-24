@@ -10,39 +10,6 @@ import SendIcon from "@mui/icons-material/Send";
 
 import Add from "@mui/icons-material/Add";
 
-const initialValues = {
-  rootNode: {
-    id: "rootNode",
-    type: "text",
-    name: "welcome",
-    text: "",
-    next: "abc1",
-  },
-  abc1: {
-    id: "abc1",
-    type: "options",
-    name: "ja_cliente",
-    text: "Você já é nosso cliente?",
-    options: [
-      {
-        id: "1",
-        name: "cliente",
-        view: true,
-        text: "Sim",
-        descricao: "Já Sou Cliente",
-        next: "abc1-5",
-      },
-      {
-        id: "2",
-        name: "cliente",
-        view: true,
-        text: "Não",
-        descricao: "Ainda não Sou Cliente",
-        next: "abc5",
-      },
-    ],
-  },
-};
 export const MensageText = () => {
   const [alertt, setAlertt] = useState(false);
   const [alerterr, setAlerterr] = useState(false);
@@ -52,27 +19,27 @@ export const MensageText = () => {
   const [loading, setLoading] = useState(false);
   const [alertContent, setAlertContent] = useState("");
 
-  const [values, setValues] = useState(initialValues);
-  function onChange(ev) {
-    const { name, value } = ev.target;
-    setMensage(ev.target.value);
-    setValues({ ...values, [name]: value });
-  }
+  // const [values, setValues] = useState(initialValues);
+  // function onChange(ev) {
+  //   const { name, value } = ev.target;
+  //   setMensage(ev.target.value);
+  //   setValues({ ...values, [name]: value });
+  // }
 
-  function onSubmit2(ev) {
-    ev.preventDefault();
-    axios
-      .post("http://localhost:3000/posts", values)
+  // function onSubmit2(ev) {
+  //   ev.preventDefault();
+  //   axios
+  //     .post("http://localhost:3000/posts", values)
 
-      .then((response) => {
-        console.log(response.data);
-        setAlertcriar(true);
-      })
-      .catch((error) => {
-        console.log(error);
-        alert("not");
-      });
-  }
+  //     .then((response) => {
+  //       console.log(response.data);
+  //       setAlertcriar(true);
+  //     })
+  //     .catch((error) => {
+  //       console.log(error);
+  //       alert("not");
+  //     });
+  // }
 
   async function Submit() {
     setLoading(true);
@@ -172,7 +139,7 @@ export const MensageText = () => {
           <h3>Enviar mensagem</h3>
           <p className="title-border"></p>
         </div>
-        <form onSubmit={onSubmit2}>
+        <form onSubmit={Submit}>
           <label> Numero: </label>
           <input
             type="text"
@@ -190,9 +157,9 @@ export const MensageText = () => {
           <textarea
             value={mensage}
             id="mensage"
-            onChange={(ev) => {
-              onChange(ev);
-            }}
+            // onChange={(ev) => {
+            //   onChange2(ev);
+            // }}
             name="mensage"
             type="text"
             className="mensage-input"
@@ -243,12 +210,10 @@ export const MensageText = () => {
           )}
         </form>
       </div>
-
       <div className="container-whats">
         <div className="img-foto2">
           <img className="img-foto3" alt="" width={230} src="p5.png" />
         </div>
-
         <div className="nome-whats1">
           <p className="nome-whats">{mensage}</p>
         </div>

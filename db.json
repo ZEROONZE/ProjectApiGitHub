@@ -1,417 +1,50 @@
 {
-  "posts": [
-    [
-      {
-        "rootNode": {
-          "id": "rootNodee",
-          "name": "text",
-          "typeInput": "input",
-          "type": "text",
-          "placeholder": "Nome",
-          "text": "",
-          "next": "abc1"
-        },
-        "abc1": {
-          "id": "abc1",
-          "type": "options",
-          "name": "ja_cliente",
-          "text": "Você já é nosso cliente?",
-          "options": [
-            {
-              "id": "1",
-              "name": "cliente",
-              "view": true,
-              "text": "Sim",
-              "descricao": "Já Sou Cliente",
-              "next": "abc1-5"
-            },
-            {
-              "id": "2",
-              "name": "cliente",
-              "view": true,
-              "text": "Não",
-              "descricao": "Ainda não Sou Cliente",
-              "next": "abc5"
-            }
-          ]
-        },
-        "abc15": {
-          "id": "abc1",
-          "type": "options",
-          "name": "novoProduto",
-          "text": "Voce gostaria de adquirir um novo plano de internet Residencial/Empresarial?",
-          "options": [
-            {
-              "id": "1",
-              "name": "novoProduto",
-              "view": true,
-              "text": "Sim",
-              "descricao": "Sim",
-              "next": "abc5"
-            },
-            {
-              "id": "2",
-              "name": "novoProduto",
-              "view": true,
-              "text": "Não",
-              "descricao": "Não",
-              "next": "abc2"
-            }
-          ]
-        },
-        "text": "Olá, aqui é um teste."
-      }
-    ],
-    [
-      {
-        "rootNode": {
-          "id": "rootNodee",
-          "name": "text",
-          "typeInput": "input",
-          "type": "text",
-          "placeholder": "Nome",
-          "text": "",
-          "next": "abc1"
-        },
-        "text": "rrrrr"
-      }
-    ],
-    [
-      {
-        "rootNode": {
-          "id": "rootNodee",
-          "name": "text",
-          "typeInput": "input",
-          "type": "text",
-          "placeholder": "Nome",
-          "text": "",
-          "next": "abc1"
-        },
-        "": "fffff"
-      }
-    ],
-    [
-      {
-        "rootNode": {
-          "id": "rootNodee",
-          "name": "text",
-          "typeInput": "input",
-          "type": "text",
-          "placeholder": "Nome",
-          "text": "",
-          "next": "abc1"
-        },
-        "": "fffff",
-        "text": "Olá, aqui é um teste."
-      }
-    ],
-    [
-      {
-        "rootNode": {
-          "id": "rootNodee",
-          "name": "text",
-          "typeInput": "input",
-          "type": "text",
-          "placeholder": "Nome",
-          "text": "",
-          "next": "abc1"
-        },
-        "text": "gtgtgt"
-      }
-    ],
-    [
-      {
-        "rootNode": {
-          "id": "rootNodee",
-          "name": "text",
-          "typeInput": "input",
-          "type": "text",
-          "placeholder": "Nome",
-          "text": "",
-          "next": "abc1"
-        },
-        "text": "lucas vc é doa"
-      }
-    ],
-    [
-      {
-        "rootNode": {
-          "id": "rootNodee",
-          "name": "text",
-          "typeInput": "input",
-          "type": "text",
-          "placeholder": "Nome",
-          "text": "",
-          "next": "abc1"
-        },
-        "text": "j"
-      }
-    ],
-    [
-      {
-        "rootNode": {
-          "id": "rootNodee",
-          "name": "text",
-          "typeInput": "input",
-          "type": "text",
-          "placeholder": "Nome",
-          "text": "",
-          "next": "abc1"
-        },
-        "text": "teteteggg"
-      }
-    ],
-    [
-      {
-        "rootNode": [
-          {
-            "id": "rootNodee",
-            "name": "text",
-            "typeInput": "input",
-            "type": "text",
-            "placeholder": "Nome",
-            "text": "",
-            "next": "abc1"
-          }
-        ],
-        "text": "teste"
-      }
-    ],
-    [
-      {
-        "id": "rootNode",
-        "name": "text",
-        "typeInput": "input",
-        "type": "text",
-        "placeholder": "Nome",
-        "text": "",
-        "next": "abc1"
+  "rootNode": [
+    {
+      "id": 1,
+      "type": "text",
+      "name": "text",
+      "text": "Lucas souza",
+      "nome": ""
+    },
+    {
+      "id": 2,
+      "type": "text",
+      "name": "text",
+      "text": "re",
+      "nome": "type"
+    },
+    {
+      "id": 12,
+      "type": "text",
+      "name": "text",
+      "text": "ewq",
+      "nome": "type"
+    },
+    {
+      "id": 17,
+      "type": "text",
+      "name": "text",
+      "text": "fereee",
+      "nome": "type"
+    }
+  ],
+  "abc1": [
+    {
+      "method": "PUT",
+      "headers": {
+        "Content-Type": "application/json"
       },
-      {
-        "rootNode": [
-          {
-            "id": "rootNodee",
-            "name": "text",
-            "typeInput": "input",
-            "type": "text",
-            "placeholder": "Nome",
-            "text": "",
-            "next": "abc1"
-          },
-          {
-            "id": "rootNodee",
-            "name": "text",
-            "typeInput": "input",
-            "type": "text",
-            "placeholder": "Nome",
-            "text": "",
-            "next": "abc1"
-          }
-        ],
-        "text": "teste"
-      }
-    ],
-    [
-      {
-        "id": "rootNode",
-        "name": "text",
-        "typeInput": "input",
-        "type": "text",
-        "placeholder": "Nome",
-        "text": "testew",
-        "next": "abc1"
-      },
-      {
-        "rootNode": [
-          {
-            "id": "rootNodee",
-            "name": "text",
-            "typeInput": "input",
-            "type": "text",
-            "placeholder": "Nome",
-            "text": "",
-            "next": "abc1"
-          },
-          {
-            "id": "rootNodee",
-            "name": "text",
-            "typeInput": "input",
-            "type": "text",
-            "placeholder": "Nome",
-            "text": "",
-            "next": "abc1"
-          }
-        ],
-        "text": "teste"
-      }
-    ],
-    [
-      {
-        "id": "rootNode",
-        "name": "text",
-        "typeInput": "input",
-        "type": "text",
-        "placeholder": "Nome",
-        "text": "testew",
-        "next": "abc1"
-      },
-      {
-        "rootNode": [
-          {
-            "id": "rootNodee",
-            "name": "text",
-            "typeInput": "input",
-            "type": "text",
-            "placeholder": "Nome",
-            "text": "",
-            "next": "abc1"
-          },
-          {
-            "id": "rootNodee",
-            "name": "text",
-            "typeInput": "input",
-            "type": "text",
-            "placeholder": "Nome",
-            "text": "",
-            "next": "abc1"
-          }
-        ],
-        "text": "testee"
-      }
-    ],
-    [
-      {
-        "id": "rootNode",
-        "name": "text",
-        "typeInput": "input",
-        "type": "text",
-        "placeholder": "Nome",
-        "text": "ddddddddddddd",
-        "next": "abc1"
-      },
-      {
-        "rootNode": [
-          {
-            "id": "rootNodee",
-            "name": "text",
-            "typeInput": "input",
-            "type": "text",
-            "placeholder": "Nome",
-            "text": "",
-            "next": "abc1"
-          }
-        ]
-      }
-    ],
-    [
-      {
-        "rootNode": [
-          {
-            "id": "rootNodee",
-            "name": "text",
-            "typeInput": "input",
-            "type": "text",
-            "placeholder": "Nome",
-            "text": "",
-            "next": "abc1"
-          }
-        ],
-        "text": "dddd"
-      }
-    ],
-    [
-      {
-        "rootNode": [
-          {
-            "id": "rootNodee",
-            "name": "text",
-            "typeInput": "input",
-            "type": "text",
-            "placeholder": "Nome",
-            "text": "",
-            "next": "abc1"
-          }
-        ],
-        "text": "fffffff"
-      }
-    ],
-    [
-      {
-        "rootNode": [
-          {
-            "id": "rootNodee",
-            "name": "text",
-            "typeInput": "input",
-            "type": "text",
-            "placeholder": "Nome",
-            "text": "",
-            "next": "abc1"
-          }
-        ],
-        "text": "de"
-      }
-    ],
-    [
-      {
-        "rootNode": [
-          {
-            "id": "rootNodee",
-            "name": "text",
-            "typeInput": "input",
-            "type": "text",
-            "placeholder": "Nome",
-            "text": "",
-            "next": "abc1"
-          }
-        ]
-      }
-    ],
-    [
-      {
-        "rootNode": [
-          {
-            "id": "rootNodee",
-            "name": "text",
-            "typeInput": "input",
-            "type": "text",
-            "placeholder": "Nome",
-            "text": "",
-            "next": "abc1"
-          }
-        ]
-      }
-    ],
-    [
-      {
-        "rootNode": [
-          {
-            "id": "rootNodee",
-            "name": "text",
-            "typeInput": "input",
-            "type": "text",
-            "placeholder": "Nome",
-            "text": "",
-            "next": "abc1"
-          }
-        ],
-        "text": "ffff"
-      }
-    ],
-    [
-      {
-        "rootNode": [
-          {
-            "id": "rootNodee",
-            "name": "text",
-            "typeInput": "input",
-            "type": "text",
-            "placeholder": "Nome",
-            "text": "",
-            "next": "abc1"
-          }
-        ],
-        "text": "ffff"
-      }
-    ]
+      "id": 2
+    }
+  ],
+  "abc2": [
+    {
+      "id": 3,
+      "type": "options",
+      "name": "text",
+      "text": "",
+      "nome": ""
+    }
   ]
 }

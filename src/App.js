@@ -1,6 +1,6 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { ThemeProvider } from "styled-components";
-import "./App.css";
+
 import { Header } from "./components/Header/Index";
 
 import { Sliderbar } from "./components/Menu/Sliderbar";
@@ -18,6 +18,8 @@ import { App2 } from "./Pages/Diagrama";
 import TextUpdaterNode from "./Pages/Diagrama/TextUpdaterNode";
 import Flow from "./Pages/Diagrama/Flow";
 import { Diagrama } from "./Pages/Diagrama/Diagrama";
+import { GetForm } from "./Pages/Jdonschema";
+import { Mostrar } from "./Pages/DiagramaMostrar";
 
 function App() {
   const { theme } = useTheme();
@@ -28,10 +30,10 @@ function App() {
         <Routes>
           <Route path="/diagrama" element={<Diagrama />} />
           <Route path="/multiplos" element={<Disparos />} />
-          <Route path="/boot" element={<Boot />} />
+          <Route path="/mostrar" element={<Mostrar />} />
           <Route path="/arquivo" element={<MenssageArquivo />} />
           <Route path="/texto" element={<MensageText />} />
-          <Route path="/foto" element={<MenssageFoto />} />
+          <Route path="/home" element={<GetForm />} />
         </Routes>
       </Sliderbar>
     </BrowserRouter>

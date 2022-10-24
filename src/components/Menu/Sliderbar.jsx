@@ -93,7 +93,7 @@ export const Sliderbar = ({ children }) => {
       icon: <TbUsers />,
     },
     {
-      path: "/boot",
+      path: "/mostrar",
       name: "sair",
       icon: <TbDoorExit />,
     },
