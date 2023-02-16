@@ -3,7 +3,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { Header } from "./components/Header/Index";
 
 import { Sliderbar } from "./components/Menu/Sliderbar";
-
+import "react-toastify/dist/ReactToastify.css";
 import { Home } from "./Pages/home";
 
 function App() {

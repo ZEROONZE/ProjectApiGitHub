@@ -6,16 +6,15 @@ import reportWebVitals from "./reportWebVitals";
 import { ThemeProvider } from "styled-components";
 import dark from "./styles/themes/dark";
 
-import { token } from "./services/Api";
 import {
   ApolloClient,
   ApolloProvider,
   createHttpLink,
-  gql,
   InMemoryCache,
 } from "@apollo/client";
 
 import { setContext } from "@apollo/client/link/context";
+import light from "./styles/themes/light";
 
 const httpLink = createHttpLink({
   uri: "https://api.github.com/graphql",
@@ -42,7 +41,7 @@ const root = ReactDOM.createRoot(
 root.render(
   <React.StrictMode>
     <ApolloProvider client={client}>
-      <ThemeProvider theme={dark}>
+      <ThemeProvider theme={light}>
         <App />
       </ThemeProvider>
     </ApolloProvider>

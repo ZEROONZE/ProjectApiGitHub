@@ -20,16 +20,17 @@ export const Conainter = styled.div`
   text-decoration: none;
   margin-top: -4.26rem;
   display: flex;
-  background: rgb(238, 238, 242);
+  color: ${(props) => props.theme.colors.font};
+  background: ${(props) => props.theme.colors.primary};
   z-index: 9;
 
   main {
     width: 100%;
-    padding: 68px 20px;
+    padding: 68px 20px 20px;
   }
 
   .slider {
-    background: #fff;
+    background: ${(props) => props.theme.colors.secondary};
     color: #ccc;
     height: 100vh;
 

@@ -143,12 +143,7 @@ export const Sliderbar = ({ children }) => {
           </div>
         </div>
         {menuItem.map((item, index) => (
-          <NavLink
-            to={item.path}
-            key={index}
-            className="link"
-            activeClasseName="active"
-          >
+          <NavLink to={item.path} key={index} className="link">
             <Icon
               className="icon"
               style={{

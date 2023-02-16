@@ -6,3 +6,7 @@ export const api = axios.create({
 });
 
 export const token = () => "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";
+
+export const apiGitHub = axios.create({
+  baseURL: "https://api.github.com",
+});

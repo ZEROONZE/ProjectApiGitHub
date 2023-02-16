@@ -3,8 +3,8 @@ export default {
   title: "dark",
 
   colors: {
-    primary: "#15151C",
-    secondary: "#181B23",
+    primary: "#121212",
+    secondary: "#1F1F1F",
     tertiary: "#40465f",
 
     font: "#B3B5C6",
@@ -13,7 +13,7 @@ export default {
     gray: "#BFBFBF",
 
     success: "#4E41F1O",
-    info: "#F7931B",
-    warning: "#E44C4E",
+    info: "#690be5",
+    warning: "#6200EE",
   },
 };
