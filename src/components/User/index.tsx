@@ -1,8 +1,14 @@
+import { useState } from "react";
 import { FaDivide, FaGithub, FaLine } from "react-icons/fa";
 import { TbDivide, TbMinusVertical } from "react-icons/tb";
 import { NavLink } from "react-router-dom";
 import { UserProps } from "../../Types/user";
+import { Header } from "../Header/Index";
 import { Container } from "./styles";
+
+interface HeaderProps {
+  onOpenModal: () => void;
+}
 
 export function Users({
   login,
@@ -41,7 +47,7 @@ export function Users({
         </div>
       </div>
 
-      <div>
+      <div className="user-bio">
         <p>{bio}</p>
       </div>
       <div className="user-follo">
@@ -59,9 +65,6 @@ export function Users({
       </div>
 
       <br />
-      <NavLink to="/home">
-        <button>Ver repositórios</button>
-      </NavLink>
 
       <br />
     </Container>

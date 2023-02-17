@@ -13,6 +13,7 @@ import { FaBars } from "react-icons/fa";
 import { NavLink } from "react-router-dom";
 import { useState } from "react";
 import { Conainter, Submenu, Icon, Name, DropdownLink } from "./styles";
+import { NewtransactionModal } from "../RepositoryModal";
 
 export const Sliderbar = ({ children }) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -20,6 +21,7 @@ export const Sliderbar = ({ children }) => {
   const [subnav, setSubnav] = useState(false);
 
   const showSubnav = () => setSubnav(!subnav);
+
   const menuItem = [
     {
       path: "/diagrama",
@@ -98,7 +100,15 @@ export const Sliderbar = ({ children }) => {
       icon: <TbDoorExit />,
     },
   ];
+  const [ismodalopen, SetIsModalOpen] = useState(false);
 
+  function handleOpenModal() {
+    SetIsModalOpen(true);
+  }
+
+  function handleCloseModal() {
+    SetIsModalOpen(false);
+  }
   return (
     <Conainter style={{ zIndex: "5" }}>
       <div style={{ width: isOpen ? "15rem" : "3rem" }} className="slider">

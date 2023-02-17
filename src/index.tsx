@@ -41,7 +41,7 @@ const root = ReactDOM.createRoot(
 root.render(
   <React.StrictMode>
     <ApolloProvider client={client}>
-      <ThemeProvider theme={light}>
+      <ThemeProvider theme={dark}>
         <App />
       </ThemeProvider>
     </ApolloProvider>

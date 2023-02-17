@@ -20,7 +20,7 @@ export const Container = styled.div`
 export const Card = styled.div`
   margin: 2rem;
   border-radius: 10px;
-  display: flex;
+
   max-width: 400px;
   height: 400px;
   max-height: 100%;
@@ -33,4 +33,17 @@ export const Card = styled.div`
   font-size: 1rem;
   text-align: center;
   gap: 19px;
+  .button-repo {
+    background: ${(props) => props.theme.colors.secondary};
+  }
+  .card-content {
+    background: ${(props) => props.theme.colors.info};
+    align-items: center;
+    margin: auto;
+    justify-content: center;
+    height: 100%;
+    max-height: 100%
+    
+    width: 100%;
+  }
 `;

@@ -7,7 +7,42 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
+.react-modal {
+  background: rgba(0, 0, 0, 0.5);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.modal-content {
+  width: 100%;
+  max-width: 576px;
+  background: #fff;
+  padding: 3rem;
+  position: relative;
+  border-radius: 0.25rem;
+}
+@media (max-width: 800px) {
+  .modal-content {
+    width: 90%;
+    max-width: 356px;
+    background: var(--background);
+    padding: 1rem;
+    position: fixed;
+    border-radius: 0.25rem;
+    left: 0;
+    margin-left: 10px;
+    align-items: center;
+    justify-content: center;
+    top: 7rem;
+  }
+}
+button[type="button"] {
+  float: right;
+  margin-top: 10px;
+  border: 0;
 }

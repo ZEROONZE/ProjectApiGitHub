@@ -2,7 +2,7 @@ import React from "react";
 export const Error = () => {
   return (
     <div>
-      <p>Usúario não encontrado</p>
+      <p>Usuário não encontrado</p>
     </div>
   );
 };

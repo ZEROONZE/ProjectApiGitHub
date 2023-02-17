@@ -5,12 +5,14 @@ import { Container } from "./styles";
 
 type SearchProps = {
   loadUser: (userName: string) => Promise<void>;
+  handleOpenModalView: (userName: string) => Promise<void>;
+  handleClick: (userName: string) => Promise<void>;
 };
 interface KeyboardEvent {
   key: string;
 }
 
-export const Search = ({ loadUser }: SearchProps) => {
+export const Search = ({ loadUser, handleOpenModalView }: SearchProps) => {
   const [userName, setUserName] = useState("");
 
   // function to search using the ENTER key.
@@ -18,6 +20,11 @@ export const Search = ({ loadUser }: SearchProps) => {
     if (e.key === "Enter") {
       loadUser(userName);
     }
+  };
+
+  const handleClick = () => {
+    handleOpenModalView(userName);
+    loadUser(userName);
   };
 
   return (
@@ -36,7 +43,7 @@ export const Search = ({ loadUser }: SearchProps) => {
               onKeyDown={handleKeyDown}
               value={userName}
             />
-            <Button variant="contained" onClick={() => loadUser(userName)}>
+            <Button variant="contained" onClick={() => handleClick()}>
               <BiSearch />
             </Button>
           </div>

@@ -2,18 +2,13 @@ import styled from "styled-components";
 
 export const Container = styled.div`
   padding: 1rem;
-
-  flex-direction: columns;
-  width: 90%;
-  height: auto;
-  margin: auto;
+  overflow-x: auto;
   .user-login {
     color: ${(props) => props.theme.colors.gray};
     align-items: center;
     gap: 10px;
   }
   .user-follo {
-    width: 90%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -23,8 +18,6 @@ export const Container = styled.div`
     }
   }
   .user-photo {
-    width: 90%;
-
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -34,14 +27,11 @@ export const Container = styled.div`
     }
   }
   .user-names {
-    width: 90%;
     justify-content: start;
     text-align: start;
     align-items: center;
     .users-name-login {
       padding-left: 1rem;
     }
-  }
-  .user-bio {
   }
 `;
