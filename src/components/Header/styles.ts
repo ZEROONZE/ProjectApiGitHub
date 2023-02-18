@@ -7,7 +7,9 @@ export const Container = styled.div`
   position: relative;
 
   z-index: 7;
-
+  h3 {
+    font-size: 1rem;
+  }
   .img-user {
     position: absolute;
 

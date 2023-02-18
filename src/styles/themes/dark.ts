@@ -7,7 +7,7 @@ export default {
     secondary: "#1F1F1F",
     tertiary: "#40465f",
 
-    font: "#B3B5C6",
+    font: "#999999",
     white: "#FFF",
     black: "#000",
     gray: "#BFBFBF",

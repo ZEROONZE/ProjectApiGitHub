@@ -1,4 +1,5 @@
 import React from "react";
+import { BiUser } from "react-icons/bi";
 import { Container } from "./styles";
 
 export const Header = () => {
@@ -6,11 +7,13 @@ export const Header = () => {
     <Container>
       <div className="user-content">
         <div className="user-name">
-          <h1>user name</h1>
+          {/* <h3 className="title-container">
+            Buscar usuario <BiUser className="icon-title-container" />
+          </h3> */}
         </div>
-        <div className="img-user">
+        {/* <div className="img-user">
           <img alt="" width={40} src="user.png" />
-        </div>
+        </div> */}
       </div>
     </Container>
   );

@@ -1,16 +1,41 @@
 import styled from "styled-components";
 
-export const Container = styled.div`
-  padding: 1rem;
-  border-radius: 10px;
-  flex-direction: columns;
-  width: 90%;
-  height: auto;
+export const SideProfileComponet = styled.div`
+  align-items: center;
+  justify-content: center;
+  align-items: center;
   margin: auto;
-  .user-login {
-    color: ${(props) => props.theme.colors.gray};
+  color: ${(props) => props.theme.colors.font};
+  padding: 10px;
+  .input-search-mui {
+    color: #6e6b7b;
+
+    border: 1.5px solid #d8d5de;
+    background-color: #fff;
+  }
+  .sideprofile-icon-email {
+    color: ${(props) => props.theme.colors.info};
+    padding: 0 5px;
+    font-size: 1rem;
+    margin-bottom: -3px;
+  }
+  .sideprofile-email {
     align-items: center;
-    gap: 10px;
+    justify-content: center;
+    align-items: center;
+  }
+  .content-sideProfile {
+    align-items: center;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    text-align: center;
+  }
+  .sideProfile-login {
+    color: ${(props) => props.theme.colors.info};
+  }
+  .sideProfile-name {
+    color: ${(props) => props.theme.colors.font};
   }
   .user-follo {
     width: 100%;
@@ -52,27 +77,5 @@ export const Container = styled.div`
         }
       }
     }
-  }
-  .user-photo {
-    width: 90%;
-
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    .photo {
-      padding-right: 1rem;
-    }
-  }
-  .user-names {
-    width: 90%;
-    justify-content: start;
-    text-align: start;
-    align-items: center;
-    .users-name-login {
-      padding-left: 1rem;
-    }
-  }
-  .user-bio {
   }
 `;

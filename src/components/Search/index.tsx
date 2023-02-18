@@ -1,6 +1,7 @@
-import { Button } from "@mui/material";
+import { Button, FilledInput, InputAdornment, TextField } from "@mui/material";
 import React, { useState } from "react";
-import { BiSearch } from "react-icons/bi";
+import { BiSearch, BiUser } from "react-icons/bi";
+import { FaGithub } from "react-icons/fa";
 import { Container } from "./styles";
 
 type SearchProps = {
@@ -31,21 +32,71 @@ export const Search = ({ loadUser, handleOpenModalView }: SearchProps) => {
     <Container>
       <div className="container-users">
         <div className="title-search">
-          <p>Buscar por usuários</p>
+          <p>
+            <p className="title-container">
+              <BiUser className="icon-title-container" /> / Buscar usuario
+            </p>
+          </p>
         </div>
 
         <div className="input-search">
           <div className="input">
-            <input
-              type="text"
-              placeholder="digite nome"
+            <TextField
+              id="standard-basic"
+              label="Buscar usuario"
+              variant="filled"
+              color="info"
+              className="input-search-mui"
+              style={{
+                background: "none",
+
+                borderColor: "#ffff",
+              }}
               onChange={(e) => setUserName(e.target.value)}
               onKeyDown={handleKeyDown}
               value={userName}
-            />
-            <Button variant="contained" onClick={() => handleClick()}>
-              <BiSearch />
-            </Button>
+            />{" "}
+            {/* <FilledInput
+              id="filled-adornment-weight"
+              className="input"
+              type="password"
+              placeholder="Login"
+              endAdornment={
+                <InputAdornment position="end">
+                  {" "}
+                  <Button
+                    variant="contained"
+                    onClick={() => handleClick()}
+                    className="buttom-search"
+                  >
+                    <BiSearch
+                      style={{
+                        fontSize: "1.5rem",
+                        color: "#fff",
+                      }}
+                    />
+                  </Button>
+                </InputAdornment>
+              }
+              aria-describedby="filled-weight-helper-text"
+              inputProps={{
+                "aria-label": "weight",
+              }}
+              style={{
+                background: "none",
+                padding: "-0 1rem",
+                borderColor: "#ffff",
+              }}
+            /> */}
+            <button onClick={() => handleClick()} className="buttom-search">
+              <BiSearch
+                style={{
+                  fontSize: "1.5rem",
+                  color: "#fff",
+                  marginBottom: "-4px",
+                }}
+              />
+            </button>
           </div>
         </div>
       </div>

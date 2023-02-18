@@ -23,7 +23,7 @@ export const Conainter = styled.div`
   color: ${(props) => props.theme.colors.font};
   background: ${(props) => props.theme.colors.primary};
   z-index: 9;
-
+  border-top-right-radius: 20px;
   main {
     width: 100%;
     padding: 68px 20px 20px;
@@ -36,6 +36,7 @@ export const Conainter = styled.div`
     width: 15rem;
     transition: all 0.5s;
     z-index: 9;
+    border-top-right-radius: 40px;
   }
 
   .top_section {
@@ -46,6 +47,7 @@ export const Conainter = styled.div`
     align-items: center;
     padding: 1.4rem 1rem;
     border-bottom: 1px #babfc7 solid;
+    border-top-right-radius: 40px;
     h1 {
       font-size: 1rem;
     }
@@ -60,10 +62,4 @@ export const Conainter = styled.div`
   }
 `;
 
-export const SideProfile = styled.div`
-  align-items: center;
-  justify-content: center;
-  align-items: center;
-  margin: auto;
-  background: ${(props) => props.theme.colors.info};
-`;
+export const SideProfile = styled.div``;

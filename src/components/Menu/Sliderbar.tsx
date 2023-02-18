@@ -10,7 +10,7 @@ import { useQuery, gql } from "@apollo/client";
 import { TbUsers, TbDoorExit } from "react-icons/tb";
 import { IoBarChartOutline, IoPaperPlaneOutline } from "react-icons/io5";
 import { FaBars } from "react-icons/fa";
-
+import Modal from "react-modal";
 import { ReactNode, useState } from "react";
 import { Conainter, SideProfile } from "./styles";
 
@@ -19,28 +19,40 @@ import { MyUser } from "./components/MyUser";
 type IPropsUser = {
   avatarUrl: string;
   login: string;
-  email: string;
+  websiteUrl: string;
   name: string;
   bio: string;
+  following: {
+    totalCount?: number;
+  };
+  followers: {
+    totalCount?: number;
+  };
 };
 
 interface IchildrenProps {
   children: ReactNode;
   ItemList: IPropsUser[];
 }
-
+Modal.setAppElement("#root");
 export const Sliderbar = ({ children, ItemList }: IchildrenProps) => {
   const [isOpen, setIsOpen] = useState(true);
   const toggle = () => setIsOpen(!isOpen);
 
   const GET_USER = gql`
     query GetUser {
-      viewer {
+      user(login: "ZEROONZE") {
         login
         avatarUrl
         bio
         name
-        email
+        websiteUrl
+        following {
+          totalCount
+        }
+        followers {
+          totalCount
+        }
       }
     }
   `;
@@ -66,7 +78,7 @@ export const Sliderbar = ({ children, ItemList }: IchildrenProps) => {
   console.log(data);
   return (
     <Conainter style={{ zIndex: "5" }}>
-      <div style={{ width: isOpen ? "19rem" : "3rem" }} className="slider">
+      <div style={{ width: isOpen ? "24rem" : "3rem" }} className="slider">
         <div className="top_section">
           <div
             style={{
@@ -84,19 +96,21 @@ export const Sliderbar = ({ children, ItemList }: IchildrenProps) => {
           </div>
         </div>
         <div>
-          <h1>teste</h1>
           {allProducts.map((user) => {
             return (
               <SideProfile>
                 <MyUser
-                  viewer={{
-                    login: user?.viewer.login,
-                    name: user?.viewer.name,
-                    bio: user?.viewer.bio,
-                    email: user?.viewer.email,
+                  user={{
+                    login: user?.user.login,
+                    name: user?.user.name,
+                    bio: user?.user.bio,
+                    websiteUrl: user?.user.websiteUrl,
+
+                    followers: user?.user.followers,
+                    following: user?.user.following,
                     avatarUrl: (
                       <img
-                        src={user?.viewer.avatarUrl}
+                        src={user?.user.avatarUrl}
                         alt="avatar"
                         width="100px"
                         className="avatar-url"

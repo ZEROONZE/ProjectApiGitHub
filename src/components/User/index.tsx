@@ -63,24 +63,18 @@ export function Users({
         <p>{bio}</p>
       </div>
       <div className="user-follo">
-        <div>
+        <div className="followers-content">
+          <p>
+            <h5>{followers}</h5>
+          </p>
           <span>Seguidores</span>
-          <p>
-            <Button variant="contained" color="info">
-              {followers}
-            </Button>
-          </p>
         </div>
-        <>
-          <TbMinusVertical style={{ fontSize: "2rem" }} />
-        </>
-        <div>
-          <span>Seguindo</span>
+        <></>
+        <div className="following-content">
           <p>
-            <Button variant="contained" color="info">
-              {following}
-            </Button>
+            <h5>{following}</h5>
           </p>
+          <span>Seguindo</span>
         </div>
       </div>
 

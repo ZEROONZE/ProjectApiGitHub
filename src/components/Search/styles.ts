@@ -16,14 +16,44 @@ export const Container = styled.div`
     align-items: center;
   }
   input {
-    width: 250px;
-
-    height: 30px;
-    border-radius: 10px;
+    background: none;
+    color: ${(props) => props.theme.colors.white};
+    width: 200px;
+    border-bottom: 2px ${(props) => props.theme.colors.tertiary} solid;
   }
-  button {
-    height: 40px;
-    margin: 0;
+  label {
+    color: ${(props) => props.theme.colors.font};
+  }
+  input::-webkit-input-placeholder:before {
+    border-color: ${(props) => props.theme.colors.tertiary};
+    color: ${(props) => props.theme.colors.font};
+  }
+  .input-search-mui::before {
+    border-color: ${(props) => props.theme.colors.tertiary};
+    padding: 1rem 0;
+  }
+  .input-search-mui {
+    background: none;
+    background: transparent;
+    border-color: ${(props) => props.theme.colors.tertiary};
+  }
+  .MuiInputBase-root {
+    background: none;
+  }
+  .title-container {
+    color: ${(props) => props.theme.colors.tertiary};
+    font-size: 1rem;
+    margin-top: 0.3rem;
+  }
+  .buttom-search {
+    height: 38px;
+    width: 42px;
+    border-radius: 10px;
+    border-color: ${(props) => props.theme.colors.info};
+    background: ${(props) => props.theme.colors.warning};
+    margin-top: 0.9rem;
+    cursor: pointer;
+    border: none;
   }
   p {
     font-family: "Poppins";
