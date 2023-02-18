@@ -20,11 +20,38 @@ body {
 }
 .modal-content {
   width: 100%;
-  max-width: 576px;
+  max-width: 80%;
   background: #fff;
+  height: 100%;
+  max-height: 50vh;
   padding: 3rem;
   position: relative;
   border-radius: 0.25rem;
+}
+.card-repo {
+  text-decoration: none;
+  display: grid;
+  justify-content: center;
+  margin: auto;
+  align-items: start;
+  grid-gap: 1rem;
+  height: 200px;
+  max-height: 200px;
+  border-radius: 20px;
+  grid-template-columns: repeat(6, 200px);
+}
+.card-repo a {
+  background: rgb(241, 241, 241);
+  text-decoration: none;
+  color: #444444;
+}
+
+.button-container {
+  margin: auto;
+  background: #fff;
+  align-items: center;
+  text-align: center;
+  width: 100%;
 }
 @media (max-width: 800px) {
   .modal-content {

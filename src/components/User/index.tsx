@@ -1,3 +1,4 @@
+import { Button } from "@mui/material";
 import { useState } from "react";
 import { FaDivide, FaGithub, FaLine } from "react-icons/fa";
 import { TbDivide, TbMinusVertical } from "react-icons/tb";
@@ -35,10 +36,21 @@ export function Users({
               <h3 style={{ margin: "4px 0 -10px" }} className="user-name">
                 {name}
               </h3>
-              <p style={{ margin: "4px 0  0 0px" }} className="user-login">
-                {" "}
+              <p
+                style={{
+                  marginTop: "5px",
+                  alignItems: "center",
+                }}
+                className="user-login"
+              >
+                {"  "}
                 <FaGithub
-                  style={{ margin: "4px 4px  0x 0px", alignItems: "center" }}
+                  style={{
+                    marginTop: "12px, 2px",
+                    paddingRight: "8px",
+                    marginBottom: "-3px",
+                    alignItems: "center",
+                  }}
                 />
                 {login}
               </p>
@@ -53,14 +65,22 @@ export function Users({
       <div className="user-follo">
         <div>
           <span>Seguidores</span>
-          <p>{followers}</p>
+          <p>
+            <Button variant="contained" color="info">
+              {followers}
+            </Button>
+          </p>
         </div>
         <>
           <TbMinusVertical style={{ fontSize: "2rem" }} />
         </>
         <div>
           <span>Seguindo</span>
-          <p>{following}</p>
+          <p>
+            <Button variant="contained" color="info">
+              {following}
+            </Button>
+          </p>
         </div>
       </div>
 

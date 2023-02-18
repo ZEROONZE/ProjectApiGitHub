@@ -4,27 +4,14 @@ import { NavLink } from "react-router-dom";
 import { RepoProps, UserProps } from "../../Types/user";
 import { Container } from "./styles";
 
-export function Repositorys({ id, name, description }: RepoProps) {
+export function Repositorys({ id, name, description, html_url }: RepoProps) {
   return (
     <Container>
-      <div>
-        <div className="user-photo">
-          <div className="users-name-login">
-            <span className="user-names">
-              <p style={{ margin: "4px 0 -10px" }} className="user-name">
-                {name}
-              </p>
-            </span>
-            <p>{description}</p>
-          </div>
-        </div>
-      </div>
+      <a href={html_url}>
+        <h4>{name}</h4>
 
-      <NavLink to="/home">
-        <button>Ver repositórios</button>
-      </NavLink>
-
-      <br />
+        <p>{description}</p>
+      </a>
     </Container>
   );
 }

@@ -3,10 +3,8 @@ import styled from "styled-components";
 export const Container = styled.div`
   height: 3.9rem;
 
-  background: ${(props) => props.theme.colors.secondary};
+  background: ${(props) => props.theme.colors.primary};
   position: relative;
-
-  border-bottom: 1px solid #babfc7;
 
   z-index: 7;
 

@@ -2,7 +2,10 @@ import styled from "styled-components";
 
 export const Container = styled.div`
   padding: 1rem;
-  overflow-x: auto;
+  display: flex;
+  background: ${(props) => props.theme.colors.info};
+  width: 400px;
+  height: 400px;
   .user-login {
     color: ${(props) => props.theme.colors.gray};
     align-items: center;

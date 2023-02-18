@@ -12,4 +12,5 @@ export type RepoProps = {
   name: string;
   node_id: string;
   description: string;
+  html_url: string;
 };

@@ -14,20 +14,11 @@ import { Header } from "../../components/Header/Index";
 import CloseFvg from "../../assets/close.svg";
 import { Repositorys } from "../../components/Repositorys";
 import { ButtomModal } from "../../components/ButtomModal";
+import { Button } from "@mui/material";
+import { Sliderbar } from "../../components/Menu/Sliderbar";
+import client from "../../index";
 
 export function Home() {
-  const GET_USER = gql`
-    query GetUser {
-      viewer {
-        login
-        name
-        bio
-        email
-        avatarUrl
-      }
-    }
-  `;
-
   // const { loading, error, data } = useQuery(GET_USER);
   const [user, setUser] = useState<UserProps | null>(null);
   const [error, setError] = useState(false);
@@ -93,10 +84,6 @@ export function Home() {
     setLoading(false);
   }
 
-  useEffect(() => {
-    handleOpenModalView(userName);
-  }, []);
-
   async function handleOpenModalView(userName: string) {
     console.log("Repo", userName);
     setLoading(true);
@@ -107,13 +94,12 @@ export function Home() {
         setError(false);
         console.log(response.data);
         setModalRepository(response.data);
-        handleSuccess();
       })
       .catch((err) => {
         if (err.response.status === 404 || err.response.status === 401) {
           setModalRepository(null);
           setError(true);
-          handleError();
+
           return;
         }
         if (err.response.status === 403) {
@@ -149,14 +135,17 @@ export function Home() {
           {user && (
             <div className="card-content">
               <Users {...user} />
-              <ButtomModal
-                onClick={handleOpenModal}
-                loading={false}
-                onChange={() => handleOpenModalView(userName)}
-                className="button-repo"
-              >
-                ver resultado
-              </ButtomModal>
+              <div className="button-container">
+                <Button
+                  onClick={handleOpenModal}
+                  variant="contained"
+                  color="info"
+                  onChange={() => handleOpenModalView(userName)}
+                  className="button-repo"
+                >
+                  ver resultado
+                </Button>
+              </div>
             </div>
           )}
 
@@ -173,21 +162,16 @@ export function Home() {
             <button type="button" onClick={handleCloseModal}>
               <img src={CloseFvg} alt="fechar modal" />
             </button>
-            <div>
+
+            <div className="card-repo">
               {modalRepository?.map((item) => {
                 return (
-                  <div
-                    style={{
-                      overflow: "auto",
-                      height: "80%",
-                      maxHeight: "80%",
-                    }}
-                  >
-                    <div>
-                      <p>
-                        {item.name} <big>{item.description}</big>
-                      </p>
-                    </div>
+                  <div className="card-repo">
+                    <a href={item.html_url}>
+                      <h4> {item.name}</h4>
+
+                      <p>{item.description}</p>
+                    </a>
                   </div>
                 );
               })}
