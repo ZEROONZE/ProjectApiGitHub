@@ -40,6 +40,7 @@ export const Conainter = styled.div<ToggleProps>`
   }
   @media (max-width: 800px) {
     main {
+      overflow: auto;
       display: ${(props) => (props.Open ? "none" : "block")};
     }
   }

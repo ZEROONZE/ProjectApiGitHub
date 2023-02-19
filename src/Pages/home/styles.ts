@@ -61,7 +61,7 @@ export const Container = styled.div`
       animation: ${moveToRight} 0.6s;
       overflow-y: auto;
       overflow-y: auto;
-      background: red;
+
       ::-webkit-scrollbar {
         width: 10px;
       }
@@ -147,8 +147,9 @@ export const Card = styled.div`
     width: 100%;
     padding-bottom:7rem;
     .button-container{
-      background: ${(props) => props.theme.colors.white};
+      background: ${(props) => props.theme.colors.primary};
       margin-bottom: 1rem;
+      padding-bottom: 1rem;
       width: 100%;
       margin-top:-3rem;
   }
@@ -173,7 +174,7 @@ export const Card = styled.div`
     justify-content: center;
     margin: auto;
     align-items: center;
-    background:red;
+ 
   }
   
   }
