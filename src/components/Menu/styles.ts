@@ -1,5 +1,11 @@
 import { Link } from "react-router-dom";
 import styled, { keyframes } from "styled-components";
+import { Sliderbar } from "./Sliderbar";
+interface ToggleProps {
+  children?: React.ReactNode;
+  Open: boolean;
+}
+const Open = () => Sliderbar;
 
 const moveToRight = keyframes`
 0% {
@@ -16,7 +22,7 @@ const moveToRight = keyframes`
 }
   `;
 
-export const Conainter = styled.div`
+export const Conainter = styled.div<ToggleProps>`
   text-decoration: none;
   margin-top: -4.26rem;
   color: #ccc;
@@ -27,8 +33,11 @@ export const Conainter = styled.div`
   border-top-right-radius: 20px;
   main {
     width: 100%;
-    padding: 68px 20px 20px;
+    padding: 68px 20px 0px;
     color: #ccc;
+    overflow: hidden;
+    animation: ${moveToRight} 0.6s;
+    display: ${(props) => (props.Open ? "none" : "block")};
   }
 
   .slider {
@@ -60,6 +69,7 @@ export const Conainter = styled.div`
     display: flex;
     font-size: 1.5rem;
     margin-left: 9.3rem;
+    animation: ${moveToRight} 0.6s;
     padding-top: 1.6rem;
   }
 `;

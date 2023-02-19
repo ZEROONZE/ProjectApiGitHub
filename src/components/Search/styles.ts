@@ -79,4 +79,60 @@ export const Container = styled.div`
     text-align: end;
     width: 100%;
   }
+
+  @media (max-width: 800px) {
+    /* input {
+    background: none;
+    color: ${(props) => props.theme.colors.white};
+    width: 200px;
+    border-bottom: 2px ${(props) => props.theme.colors.tertiary} solid;
+  } */
+    .container-users {
+      display: flex;
+      flex-direction: column;
+      margin: auto;
+    }
+    input {
+      margin: auto;
+      width: 100%;
+      color: #1f1f1f;
+      padding-right: 30px;
+      border-bottom: 2px ${(props) => props.theme.colors.info} solid;
+    }
+    .label {
+      color: #1f1f1f;
+    }
+    .title-search {
+      width: 100%;
+      margin: auto;
+      flex-direction: row;
+      text-align: center;
+      margin-top: 2px;
+      margin-bottom: 9px;
+      justify-content: center;
+    }
+    .title-container {
+      text-align: center;
+      margin: auto;
+      justify-content: center;
+    }
+    .input {
+      width: 100%;
+      margin: auto;
+      padding: auto;
+      display: flex;
+      background: #fafafa;
+      border-radius: 10px;
+      flex-direction: row;
+    }
+    .input-search {
+      width: 100%;
+      margin: auto;
+    }
+    .buttom-search {
+    }
+    .icon-title-container {
+      margin-bottom: -1.6px;
+    }
+  }
 `;

@@ -14,7 +14,7 @@ function App() {
       <Header />
       <Sliderbar>
         <Routes>
-          <Route path="/home" element={<Home />} />
+          <Route path="/" element={<Home />} />
           <Route path="/teste" element={<DataGridDemo />} />
           <Route path="/repo" element={<Repositorys />} />
         </Routes>

@@ -1,5 +1,18 @@
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
+const moveToRight = keyframes`
+0% {
+ 
+  opacity: 0;
+}
+50%{
+  opacity: 0;
 
+}
+100%{
+  transition: opacity 3s linear 3s;
+  opacity: 1;
+}
+  `;
 export const Container = styled.div`
   border-radius: 20px;
   height: 100%;
@@ -32,6 +45,12 @@ export const Container = styled.div`
   .MuiTableBody-root {
     overflow-y: auto;
   }
+  .slack-mui {
+    animation: ${moveToRight} 0.6s;
+  }
+  .pagination-repo {
+    animation: ${moveToRight} 0.6s;
+  }
   .react-modal {
     .tbody-container {
       max-height: 54vh;
@@ -39,6 +58,7 @@ export const Container = styled.div`
       border-top: 2px #f2f2f2 solid;
       width: 98.3%;
       margin: 10px;
+      animation: ${moveToRight} 0.6s;
       overflow-y: auto;
       overflow-y: auto;
       background: red;
@@ -69,9 +89,12 @@ export const Container = styled.div`
     }
   }
   .card-body-user {
-    height: 89%;
+    height: 80%;
     align-items: center;
     margin: auto;
+  }
+  .modal-content {
+    animation: ${moveToRight} 0.6s;
   }
 `;
 
@@ -81,12 +104,12 @@ export const Card = styled.div`
   max-width: 400px;
   height: auto;
   max-height: 90%;
-
+  animation: ${moveToRight} 0.6s;
   padding-bottom:1.5rem;
   align-items: center;
   justify-content: center;
 
-  background: ${(props) => props.theme.colors.primary};
+  background: ${(props) => props.theme.colors.secondary};
   color: ${(props) => props.theme.colors.white};
   font-family: "Poppins", Helvetica, Arial, serif;
   font-size: 1rem;
@@ -94,7 +117,7 @@ export const Card = styled.div`
   gap: 19px;
   
   .button-repo {
-    
+    animation: ${moveToRight} 0.6s;
     justify-content: center;
     margin: auto;
     align-items: center;
@@ -116,6 +139,7 @@ export const Card = styled.div`
     height: 100%;
     max-height: 100%
     margin-top: 4rem;
+    animation: ${moveToRight} 0.6s;
     width: 100%;
     .button-container{
       background: ${(props) => props.theme.colors.white};
@@ -127,6 +151,24 @@ export const Card = styled.div`
     margin-bottom: 4rem;
   }
  
-
- 
+  @media (max-width: 800px) {
+    margin: 7px;
+  .button-repo{
+    width:70%;
+    justify-content: center;
+    margin: auto;
+    margin-right:-1.3rem;
+    margin-top:1rem;
+    align-items: center;
+  }
+  .card-content .button-container{
+    width:100%;
+    margin-top:10px;
+    justify-content: center;
+    margin: auto;
+    align-items: center;
+    background:red;
+  }
+  
+  }
 `;

@@ -1,5 +1,18 @@
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
+const moveToRight = keyframes`
+0% {
+ 
+  opacity: 0;
+}
+50%{
+  opacity: 0;
 
+}
+100%{
+  transition: opacity 3s linear 3s;
+  opacity: 1;
+}
+  `;
 export const Container = styled.div`
   padding: 1rem;
   border-radius: 10px;
@@ -7,6 +20,7 @@ export const Container = styled.div`
   width: 90%;
   height: auto;
   margin: auto;
+  animation: ${moveToRight} 0.6s;
   .user-login {
     color: ${(props) => props.theme.colors.gray};
     align-items: center;

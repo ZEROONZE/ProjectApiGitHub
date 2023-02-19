@@ -30,12 +30,12 @@ type IPropsUser = {
   };
 };
 
-interface IchildrenProps {
-  children: ReactNode;
-  ItemList: IPropsUser[];
+interface ToggleProps {
+  children?: React.ReactNode;
+  Open: boolean;
 }
 Modal.setAppElement("#root");
-export const Sliderbar = ({ children, ItemList }: IchildrenProps) => {
+export const Sliderbar = ({ children, Open }: ToggleProps) => {
   const [isOpen, setIsOpen] = useState(true);
   const toggle = () => setIsOpen(!isOpen);
 
@@ -61,23 +61,14 @@ export const Sliderbar = ({ children, ItemList }: IchildrenProps) => {
   const allProducts = [data];
   console.log(allProducts);
 
-  // const { date } = await client.query({
-  //   query: gql`
-  //     query GetUser {
-  //       viewer {
-  //         login
-  //         name
-  //         bio
-  //         email
-  //         avatarUrl
-  //       }
-  //     }
-  //   `,
-  // });
+  const style = {
+    "media screen and (max-width: 600px)": {
+      display: isOpen ? "none" : "none",
+    },
+  };
 
-  console.log(data);
   return (
-    <Conainter style={{ zIndex: "5" }}>
+    <Conainter style={{ zIndex: "5" }} Open={isOpen}>
       <div style={{ width: isOpen ? "24rem" : "3rem" }} className="slider">
         <div className="top_section">
           <div
@@ -95,7 +86,7 @@ export const Sliderbar = ({ children, ItemList }: IchildrenProps) => {
             />
           </div>
         </div>
-        <div>
+        <div style={{ display: isOpen ? "block" : "none" }}>
           {allProducts.map((user) => {
             return (
               <SideProfile>

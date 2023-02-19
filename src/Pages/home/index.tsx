@@ -65,6 +65,12 @@ export function Home() {
   const [modalRepository, setModalRepository] = useState<RepoProps[] | null>();
   const [ismodalopen, SetIsModalOpen] = useState(false);
 
+  // search repositorios
+  // const [searchRepo, SetSearchRepo] = useState<RepoProps | null>();
+  // const filterRepo = modalRepository?.filter((itemRepo) =>
+  //   itemRepo.includes([searchRepo])
+  // );
+
   function handleCloseModal() {
     SetIsModalOpen(false);
   }
@@ -232,6 +238,18 @@ export function Home() {
             className="modal-content"
             overlayClassName="react-modal"
           >
+            <div
+              style={{
+                borderRadius: "10px",
+                marginTop: "-4px",
+                marginBottom: "6px",
+              }}
+            >
+              <input
+                type="text"
+                style={{ borderRadius: "10px", marginTop: "-4px" }}
+              />
+            </div>
             <button
               type="button"
               onClick={handleCloseModal}
@@ -699,9 +717,12 @@ export function Home() {
                             fontFamily: "Poppins",
                             color: "#999999",
                           }}
+                          className="desc-repo"
                         >
                           {(item.description === null && (
-                            <p>Projeto não tem descrição.</p>
+                            <p className="desc-repo">
+                              Projeto não tem descrição.
+                            </p>
                           )) ||
                             item.description}
                         </TableCell>

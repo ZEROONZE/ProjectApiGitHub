@@ -18,4 +18,5 @@ export type RepoProps = {
   forks: number;
   updated_at: string;
   stargazers_count: number;
+  includes: any;
 };

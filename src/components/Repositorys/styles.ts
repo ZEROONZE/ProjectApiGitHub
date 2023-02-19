@@ -1,10 +1,24 @@
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
+const moveToRight = keyframes`
+0% {
+ 
+  opacity: 0;
+}
+50%{
+  opacity: 0;
 
+}
+100%{
+  transition: opacity 3s linear 3s;
+  opacity: 1;
+}
+  `;
 export const Container = styled.div`
   padding: 1rem;
   display: flex;
   background: ${(props) => props.theme.colors.info};
   width: 400px;
+  animation: ${moveToRight} 0.6s;
   height: 400px;
   .user-login {
     color: ${(props) => props.theme.colors.gray};
