@@ -105,7 +105,7 @@ export const Card = styled.div`
   height: auto;
   max-height: 90%;
   animation: ${moveToRight} 0.6s;
-  padding-bottom:1.5rem;
+  
   align-items: center;
   justify-content: center;
 
@@ -114,7 +114,7 @@ export const Card = styled.div`
   font-family: "Poppins", Helvetica, Arial, serif;
   font-size: 1rem;
   text-align: center;
-  gap: 19px;
+  padding-bottom: 4rem;
   
   .button-repo {
     animation: ${moveToRight} 0.6s;
@@ -123,11 +123,12 @@ export const Card = styled.div`
     align-items: center;
     text-align: end;
     width: 50%;
-    left:-26%;
+    left:-25%;
+    top:7.9rem;
     background: ${(props) => props.theme.colors.info};
     color: ${(props) => props.theme.colors.white};
-    margin-top: -1rem;
-    margin-bottom: 1rem;
+    margin-top: -5rem;
+    margin-bottom: 4rem;
     :hover{
       background: #4e08aa;
     }
@@ -144,11 +145,12 @@ export const Card = styled.div`
     margin-top: 4rem;
     animation: ${moveToRight} 0.6s;
     width: 100%;
-    padding-bottom:2rem;
+    padding-bottom:7rem;
     .button-container{
       background: ${(props) => props.theme.colors.white};
       margin-bottom: 1rem;
       width: 100%;
+      margin-top:-3rem;
   }
   }
   .search-div{

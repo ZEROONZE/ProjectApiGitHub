@@ -1,16 +1,6 @@
-import { Box, Button } from "@mui/material";
-import { DataGrid, GridColDef, GridValueGetterParams } from "@mui/x-data-grid";
-import { useState } from "react";
-import { FaDivide, FaGithub, FaLine } from "react-icons/fa";
-import { TbDivide, TbMinusVertical } from "react-icons/tb";
-import { NavLink } from "react-router-dom";
+import { FaGithub } from "react-icons/fa";
 import { UserProps } from "../../Types/user";
-import { Header } from "../Header/Index";
 import { Container } from "./styles";
-
-interface HeaderProps {
-  onOpenModal: () => void;
-}
 
 export function Users({
   id,
@@ -79,10 +69,6 @@ export function Users({
           <span>Seguindo</span>
         </div>
       </div>
-
-      <br />
-
-      <br />
     </Container>
   );
 }

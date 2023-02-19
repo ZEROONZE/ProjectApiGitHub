@@ -91,6 +91,7 @@ export const Container = styled.div`
     width: 200px;
     border-bottom: 2px ${(props) => props.theme.colors.tertiary} solid;
   } */
+
     .container-users {
       display: flex;
       flex-direction: column;
@@ -111,7 +112,7 @@ export const Container = styled.div`
       margin: auto;
       flex-direction: row;
       text-align: center;
-      margin-top: 4px;
+      margin-top: 5px;
       margin-bottom: 9px;
       justify-content: center;
     }
@@ -119,6 +120,7 @@ export const Container = styled.div`
       text-align: center;
       margin: auto;
       justify-content: center;
+      margin-top: 1rem;
     }
     .input {
       width: 100%;

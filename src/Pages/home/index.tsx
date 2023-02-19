@@ -1,5 +1,4 @@
-import { useQuery, gql } from "@apollo/client";
-import { useCallback, useEffect, useMemo, useState } from "react";
+import { useEffect, useState } from "react";
 import { Error } from "../../components/Error/Error";
 import { Search } from "../../components/Search";
 import { Users } from "../../components/User";
@@ -12,9 +11,6 @@ import { Card, Container } from "./styles";
 import Pagination from "@mui/material/Pagination";
 import Stack from "@mui/material/Stack";
 
-import CloseFvg from "../../assets/close.svg";
-import { Repositorys } from "../../components/Repositorys";
-import { ButtomModal } from "../../components/ButtomModal";
 import {
   Box,
   Button,
@@ -26,12 +22,7 @@ import {
   TableRow,
   TextField,
 } from "@mui/material";
-import { Sliderbar } from "../../components/Menu/Sliderbar";
-import client from "../../index";
 
-import { DataGrid, GridColDef, GridValueGetterParams } from "@mui/x-data-grid";
-import DataGridDemo from "../TESTE";
-import { useSearchParams } from "react-router-dom";
 import { IoClose, IoLogoJavascript } from "react-icons/io5";
 import { BiBookBookmark } from "react-icons/bi";
 import {
@@ -45,32 +36,28 @@ import { FaGofore, FaJava, FaPhp } from "react-icons/fa";
 import { AiFillStar } from "react-icons/ai";
 
 var LIMITE_DE_LINHAS = 5;
-var PAGINA = 1;
+
 Modal.setAppElement("#root");
 interface handleOpenModalView {
   handleOpenModalView2: (userName: string) => Promise<void>;
 }
 
 export function Home() {
-  // const { loading, error, data } = useQuery(GET_USER);
+  // user
   const [user, setUser] = useState<UserProps | null>(null);
+  const [userName, setUserName] = useState("");
+  // Repo
   const [repo, setRepo] = useState<RepoProps | null>(null);
   const [error, setError] = useState(false);
   const [loading, setLoading] = useState(false);
-
+  const [modalRepository, setModalRepository] = useState<RepoProps[] | null>();
+  // pagination
   const [totalCount, setTotalCount] = useState(0);
   const [page, setPage] = useState(1);
   const [totalPages, setTotalPages] = useState(0);
-  //modal
-  const [userName, setUserName] = useState("");
-  const [modalRepository, setModalRepository] = useState<RepoProps[] | null>();
-  const [ismodalopen, SetIsModalOpen] = useState(false);
 
-  // search repositorios
-  // const [searchRepo, SetSearchRepo] = useState<RepoProps | null>();
-  // const filterRepo = modalRepository?.filter((itemRepo) =>
-  //   itemRepo.includes([searchRepo])
-  // );
+  //modal
+  const [ismodalopen, SetIsModalOpen] = useState(false);
 
   function handleCloseModal() {
     SetIsModalOpen(false);
@@ -79,6 +66,7 @@ export function Home() {
     SetIsModalOpen(true);
     setModalRepository(modalRepository);
   }
+
   // Alert
   function handleSuccess() {
     toast.success("usuário encontrado!");
@@ -92,13 +80,13 @@ export function Home() {
     toast.error("Limite de buscas excedidas!");
   }
 
+  // Search user
   async function loadUser(userName: string) {
     setUserName(userName);
-
     setLoading(true);
+
     const res = await apiGitHub
       .get(`/users/${userName}`)
-
       .then((response) => {
         setError(false);
         console.log(response.data);
@@ -119,14 +107,12 @@ export function Home() {
           handleErrorLimit();
           return;
         }
-        console.log(err.response.status);
-        console.log(err);
-        console.log(err.data);
-        console.log(err.response.status);
       });
 
     setLoading(false);
   }
+
+  // Search Repository
   useEffect(() => {
     async function handleOpenModalView(userName: string) {
       console.log("Repo", userName);
@@ -156,7 +142,7 @@ export function Home() {
           if (err.response.status === 403) {
             setModalRepository(null);
             setError(true);
-            handleErrorLimit();
+
             return;
           }
         });
@@ -165,7 +151,8 @@ export function Home() {
     }
     handleOpenModalView(userName);
   }, [page, userName]);
-  //pagination
+
+  //number the pagination
   async function handleChange(
     event: React.ChangeEvent<unknown>,
     value: number
@@ -175,18 +162,14 @@ export function Home() {
     const teste = await setModalRepository(modalRepository);
     return teste;
   }
-
   const coutPage = Math.ceil(totalPages / totalCount);
+
   return (
     <Container>
       <div className="container">
         <ToastContainer autoClose={3000} closeOnClick theme="light" />
         <div className="search-div">
-          <Search
-            loadUser={loadUser}
-            // handleOpenModalView={handleOpenModalView}
-            handleClick={loadUser}
-          />
+          <Search loadUser={loadUser} handleClick={loadUser} />
         </div>
         <br></br>
         <br></br>
@@ -222,21 +205,6 @@ export function Home() {
             {error && <Error />}
           </Card>
         </div>
-        {/* <div className="card">
-          {modalRepository?.map((item) => {
-            return (
-              <Repositorys
-                id={item.id}
-                name={item.name}
-                node_id={""}
-                description={item.description}
-                html_url={""}
-                length={modalRepository?.length}
-              />
-            );
-          })}
-        </div> */}
-
         {ismodalopen && (
           <Modal
             isOpen={ismodalopen}
@@ -247,7 +215,7 @@ export function Home() {
             <div
               style={{
                 borderRadius: "10px",
-                marginTop: "-30px",
+                marginTop: "-5px",
                 marginBottom: "6px",
               }}
             >
@@ -255,7 +223,7 @@ export function Home() {
                 id="standard-basic"
                 label="Buscar repositórios"
                 variant="standard"
-                style={{ borderRadius: "10px", marginTop: "-4px" }}
+                style={{ marginTop: "-2px" }}
               />
             </div>
             <button

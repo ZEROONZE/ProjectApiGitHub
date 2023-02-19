@@ -1,14 +1,4 @@
-import { BiComment } from "react-icons/bi";
-import {
-  FiChevronDown,
-  FiMessageSquare,
-  FiImage,
-  FiFolder,
-  FiChevronUp,
-} from "react-icons/fi";
 import { useQuery, gql } from "@apollo/client";
-import { TbUsers, TbDoorExit } from "react-icons/tb";
-import { IoBarChartOutline, IoPaperPlaneOutline } from "react-icons/io5";
 import { FaBars } from "react-icons/fa";
 import Modal from "react-modal";
 import { ReactNode, useState } from "react";
@@ -97,7 +87,6 @@ export const Sliderbar = ({ children, Open }: ToggleProps) => {
                     name: user?.user.name,
                     bio: user?.user.bio,
                     websiteUrl: user?.user.websiteUrl,
-
                     followers: user?.user.followers,
                     following: user?.user.following,
                     avatarUrl: (

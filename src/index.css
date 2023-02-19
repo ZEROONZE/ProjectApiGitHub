@@ -140,13 +140,13 @@ body {
     position: fixed;
     border-radius: 0.25rem;
     left: 0;
-    margin-left: 2px;
+    margin-left: 3.5px;
     align-items: center;
     justify-content: center;
     top: 7rem;
     height: 100vh;
     max-width: 100vh;
-    padding-bottom: 6rem;
+    padding-bottom: 6.4rem;
   }
   .tbody-container {
     margin-left: 1.3px;
@@ -160,6 +160,13 @@ body {
     max-width: 60px;
     width: 60px;
     overflow: hidden;
+  }
+  .close-icon {
+    margin-top: -2.5rem;
+    right: 1.3rem;
+  }
+  .modal-content {
+    border-radius: 20px;
   }
 }
 button[type="button"] {

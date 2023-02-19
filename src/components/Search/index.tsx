@@ -1,12 +1,10 @@
-import { Button, FilledInput, InputAdornment, TextField } from "@mui/material";
+import { TextField } from "@mui/material";
 import React, { useState } from "react";
 import { BiSearch, BiUser } from "react-icons/bi";
-import { FaGithub } from "react-icons/fa";
 import { Container } from "./styles";
 
 type SearchProps = {
   loadUser: (userName: string) => Promise<void>;
-  // handleOpenModalView: (userName: string) => Promise<void>;
   handleClick: (userName: string) => Promise<void>;
 };
 interface KeyboardEvent {
@@ -24,7 +22,6 @@ export const Search = ({ loadUser }: SearchProps) => {
   };
 
   const handleClick = () => {
-    // handleOpenModalView(userName);
     loadUser(userName);
   };
 
@@ -49,45 +46,12 @@ export const Search = ({ loadUser }: SearchProps) => {
               className="input-search-mui"
               style={{
                 background: "none",
-
                 borderColor: "#ffff",
               }}
               onChange={(e) => setUserName(e.target.value)}
               onKeyDown={handleKeyDown}
               value={userName}
             />{" "}
-            {/* <FilledInput
-              id="filled-adornment-weight"
-              className="input"
-              type="password"
-              placeholder="Login"
-              endAdornment={
-                <InputAdornment position="end">
-                  {" "}
-                  <Button
-                    variant="contained"
-                    onClick={() => handleClick()}
-                    className="buttom-search"
-                  >
-                    <BiSearch
-                      style={{
-                        fontSize: "1.5rem",
-                        color: "#fff",
-                      }}
-                    />
-                  </Button>
-                </InputAdornment>
-              }
-              aria-describedby="filled-weight-helper-text"
-              inputProps={{
-                "aria-label": "weight",
-              }}
-              style={{
-                background: "none",
-                padding: "-0 1rem",
-                borderColor: "#ffff",
-              }}
-            /> */}
             <button onClick={() => handleClick()} className="buttom-search">
               <BiSearch
                 style={{

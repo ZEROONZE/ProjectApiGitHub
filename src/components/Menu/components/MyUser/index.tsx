@@ -1,11 +1,7 @@
-import React, { ReactElement, useState } from "react";
+import React, { ReactElement } from "react";
 import { SideProfileComponet } from "./styles";
-import { FaDivide, FaGithub, FaLine } from "react-icons/fa";
-import { Button } from "@mui/material";
-import { TbMinusVertical } from "react-icons/tb";
-import { MdOutlineAlternateEmail } from "react-icons/md";
+import { FaGithub } from "react-icons/fa";
 import { BiUser } from "react-icons/bi";
-import Modal from "react-modal";
 
 interface IUserPros {
   user: {
@@ -53,7 +49,6 @@ export function MyUser({
             {login}
           </p>
         </span>
-
         <p>{bio}</p>
         <br></br>
         <div className="user-follo">

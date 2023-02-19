@@ -1,13 +1,9 @@
 import { Box } from "@mui/material";
-
-import { FaDivide, FaGithub, FaLine } from "react-icons/fa";
-import { TbDivide, TbMinusVertical } from "react-icons/tb";
-import { NavLink } from "react-router-dom";
-import { RepoProps, UserProps } from "../../Types/user";
+import { RepoProps } from "../../Types/user";
 import { Container } from "./styles";
 import { DataGrid, GridColDef, GridValueGetterParams } from "@mui/x-data-grid";
 import { apiGitHub } from "../../services/Api";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 export function Repositorys({ id, name, description, html_url }: RepoProps) {
   const [modalRepository, setModalRepository] = useState<RepoProps[] | null>();
@@ -53,8 +49,6 @@ export function Repositorys({ id, name, description, html_url }: RepoProps) {
     ${params.getValue(params.id, description || "")}`,
     },
   ];
-
-  // const rows = [{ id: id, lastName: name, firstName: description }];
 
   const rows = modalRepository?.map((item) => [
     {
