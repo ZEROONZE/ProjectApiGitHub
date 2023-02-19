@@ -34,7 +34,7 @@ export const Search = ({ loadUser }: SearchProps) => {
         <div className="title-search">
           <p>
             <p className="title-container">
-              <BiUser className="icon-title-container" /> / Buscar usuario
+              <BiUser className="icon-title-container" /> / Buscar usuários
             </p>
           </p>
         </div>
@@ -43,7 +43,7 @@ export const Search = ({ loadUser }: SearchProps) => {
           <div className="input">
             <TextField
               id="standard-basic"
-              label="Buscar usuario"
+              label="Buscar usuários"
               variant="filled"
               color="info"
               className="input-search-mui"

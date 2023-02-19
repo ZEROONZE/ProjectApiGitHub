@@ -128,6 +128,9 @@ export const Card = styled.div`
     color: ${(props) => props.theme.colors.white};
     margin-top: -1rem;
     margin-bottom: 1rem;
+    :hover{
+      background: #4e08aa;
+    }
   }
   .card-content {
     border-radius: 20px;
@@ -141,6 +144,7 @@ export const Card = styled.div`
     margin-top: 4rem;
     animation: ${moveToRight} 0.6s;
     width: 100%;
+    padding-bottom:2rem;
     .button-container{
       background: ${(props) => props.theme.colors.white};
       margin-bottom: 1rem;

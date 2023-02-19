@@ -37,9 +37,12 @@ export const Conainter = styled.div<ToggleProps>`
     color: #ccc;
     overflow: hidden;
     animation: ${moveToRight} 0.6s;
-    display: ${(props) => (props.Open ? "none" : "block")};
   }
-
+  @media (max-width: 800px) {
+    main {
+      display: ${(props) => (props.Open ? "none" : "block")};
+    }
+  }
   .slider {
     background: ${(props) => props.theme.colors.secondary};
     color: #ccc;

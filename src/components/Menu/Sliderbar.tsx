@@ -81,6 +81,7 @@ export const Sliderbar = ({ children, Open }: ToggleProps) => {
             <FaBars
               style={{
                 marginLeft: isOpen ? "-4.6rem" : "0.3rem",
+                marginTop: isOpen ? "7px" : "10px",
               }}
               onClick={toggle}
             />

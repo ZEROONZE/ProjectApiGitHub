@@ -7,6 +7,10 @@ export const Container = styled.div`
   display: flex;
   width: 100%;
   flex-direction: row;
+
+  .icon-title-container {
+    margin-bottom: -1.6px;
+  }
   .container-users {
     display: flex;
     width: 95%;
@@ -107,7 +111,7 @@ export const Container = styled.div`
       margin: auto;
       flex-direction: row;
       text-align: center;
-      margin-top: 2px;
+      margin-top: 4px;
       margin-bottom: 9px;
       justify-content: center;
     }
@@ -130,6 +134,7 @@ export const Container = styled.div`
       margin: auto;
     }
     .buttom-search {
+      margin-right: 2px;
     }
     .icon-title-container {
       margin-bottom: -1.6px;

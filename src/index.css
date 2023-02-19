@@ -29,13 +29,15 @@ body {
 .modal-content {
   width: 100%;
   max-width: 70%;
-  background: #a8a8a8;
+
+  background: #ffffff;
   height: 100%;
   border-radius: 13px;
   max-height: 50vh;
   padding: 3rem;
   border-radius: 15px;
   position: relative;
+  padding-bottom: 7rem;
 }
 .tbody-container {
   max-height: 54vh;
@@ -84,8 +86,8 @@ body {
 
 .close-icon {
   font-size: 1.6rem;
-  margin-top: -3rem;
-  right: 1rem;
+  margin-top: -4rem;
+  right: 1.7rem;
   position: absolute;
   color: rgb(143, 22, 22);
   transition: all 0.3s;

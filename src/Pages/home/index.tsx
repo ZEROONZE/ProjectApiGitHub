@@ -24,6 +24,7 @@ import {
   TableFooter,
   TableHead,
   TableRow,
+  TextField,
 } from "@mui/material";
 import { Sliderbar } from "../../components/Menu/Sliderbar";
 import client from "../../index";
@@ -80,15 +81,15 @@ export function Home() {
   }
   // Alert
   function handleSuccess() {
-    toast.success("Usuario encontrado!");
+    toast.success("usuário encontrado!");
   }
 
   function handleError() {
-    toast.error("Usuario não encontrado!");
+    toast.error("usuário não encontrado!");
   }
 
   function handleErrorLimit() {
-    toast.error("Limite de buscas exedidas!");
+    toast.error("Limite de buscas excedidas!");
   }
 
   async function loadUser(userName: string) {
@@ -158,10 +159,6 @@ export function Home() {
             handleErrorLimit();
             return;
           }
-          console.log(err.response.status);
-
-          console.log(err.data);
-          console.log(err.response.status);
         });
 
       setLoading(false);
@@ -174,9 +171,6 @@ export function Home() {
     value: number
   ) {
     setPage(value);
-    // setTimeout(() => {
-    //   handleOpenModalView(userName);
-    // }, 2000);
 
     const teste = await setModalRepository(modalRepository);
     return teste;
@@ -206,8 +200,20 @@ export function Home() {
                     onClick={handleOpenModal}
                     color="info"
                     className="button-repo"
+                    style={{
+                      textTransform: "none",
+                      fontSize: "1rem",
+                      fontWeight: "400",
+                      fontFamily: "Roboto",
+                    }}
                   >
-                    ver repositorios
+                    <BiBookBookmark
+                      style={{
+                        marginRight: "10px",
+                        marginTop: "-1px",
+                      }}
+                    />{" "}
+                    ver repositórios
                   </Button>
                 </div>
               </div>
@@ -241,12 +247,14 @@ export function Home() {
             <div
               style={{
                 borderRadius: "10px",
-                marginTop: "-4px",
+                marginTop: "-30px",
                 marginBottom: "6px",
               }}
             >
-              <input
-                type="text"
+              <TextField
+                id="standard-basic"
+                label="Buscar repositórios"
+                variant="standard"
                 style={{ borderRadius: "10px", marginTop: "-4px" }}
               />
             </div>
@@ -271,7 +279,7 @@ export function Home() {
                     width: "100%",
                     color: "#6e6b7b",
                     borderBottom: "2px #f2f2f2 solid",
-                    background: "#121212",
+                    background: "#292828",
                   }}
                 >
                   <TableRow>
@@ -734,13 +742,14 @@ export function Home() {
             </div>
             <TableFooter>
               <TableRow>
-                <Stack spacing={2}>
+                <Stack spacing={2} className="slack-mui">
                   <Pagination
                     page={page}
                     count={coutPage}
                     variant="outlined"
                     color="primary"
                     onChange={handleChange}
+                    className="pagination-repo"
                   />
                 </Stack>
               </TableRow>
