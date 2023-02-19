@@ -8,9 +8,14 @@ export type UserProps = {
   bio: string;
 };
 export type RepoProps = {
+  length: any;
   id: string;
   name: string;
   node_id: string;
   description: string;
   html_url: string;
+  language: string;
+  forks: number;
+  updated_at: string;
+  stargazers_count: number;
 };

@@ -7,6 +7,8 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+/* //modal  */
+
 .react-modal {
   background: rgba(0, 0, 0, 0.5);
   position: fixed;
@@ -14,22 +16,93 @@ body {
   left: 0;
   right: 0;
   bottom: 0;
+  border: none;
   display: flex;
   z-index: 999999;
   align-items: center;
   justify-content: center;
+  border-radius: 13px;
+}
+.button {
+  cursor: pointer;
 }
 .modal-content {
   width: 100%;
   max-width: 70%;
-  background: #fff;
+  background: #a8a8a8;
   height: 100%;
-
+  border-radius: 13px;
   max-height: 50vh;
   padding: 3rem;
+  border-radius: 15px;
   position: relative;
-  border-radius: 0.25rem;
 }
+.tbody-container {
+  max-height: 54vh;
+  height: 47vh;
+  border-top: 2px #555555 solid;
+  width: 98.3%;
+  margin: 10px;
+  overflow-y: auto;
+  overflow-y: auto;
+  background: #333232;
+  color: #ffffff;
+  border-radius: 13px;
+}
+
+.tbody-container::-webkit-scrollbar {
+  width: 10px;
+}
+.tbody-container:-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background-color: #00000001;
+}
+
+.tbody-container::-webkit-scrollbar-track {
+  background-color: #333232;
+  border-bottom-right-radius: 8px;
+  border-top-right-radius: 8px;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background-color: #585858;
+}
+
+::-webkit-scrollbar-track {
+  background-color: rgba(0, 0, 0, 0.472);
+}
+.close-modal {
+  border: none;
+  border-radius: 10px;
+  background: transparent;
+  cursor: pointer;
+}
+
+.close-icon {
+  font-size: 1.6rem;
+  margin-top: -3rem;
+  right: 1rem;
+  position: absolute;
+  color: rgb(143, 22, 22);
+  transition: all 0.3s;
+}
+.close-icon:hover {
+  background-color: rgba(0, 0, 0, 0.472);
+  border-radius: 4px;
+  color: rgb(80, 12, 12);
+}
+.icon-languagem {
+  margin-right: 6px;
+  margin-bottom: -2px;
+}
+.name-languagem {
+  color: #999999;
+}
+/* //modal  */
 .card-repo {
   text-decoration: none;
   display: grid;

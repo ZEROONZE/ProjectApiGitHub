@@ -5,6 +5,7 @@ import { Button } from "@mui/material";
 import { TbMinusVertical } from "react-icons/tb";
 import { MdOutlineAlternateEmail } from "react-icons/md";
 import { BiUser } from "react-icons/bi";
+import Modal from "react-modal";
 
 interface IUserPros {
   user: {

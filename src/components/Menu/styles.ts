@@ -19,6 +19,7 @@ const moveToRight = keyframes`
 export const Conainter = styled.div`
   text-decoration: none;
   margin-top: -4.26rem;
+  color: #ccc;
   display: flex;
   color: ${(props) => props.theme.colors.font};
   background: ${(props) => props.theme.colors.primary};
@@ -27,6 +28,7 @@ export const Conainter = styled.div`
   main {
     width: 100%;
     padding: 68px 20px 20px;
+    color: #ccc;
   }
 
   .slider {

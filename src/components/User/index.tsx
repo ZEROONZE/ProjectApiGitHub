@@ -1,4 +1,5 @@
-import { Button } from "@mui/material";
+import { Box, Button } from "@mui/material";
+import { DataGrid, GridColDef, GridValueGetterParams } from "@mui/x-data-grid";
 import { useState } from "react";
 import { FaDivide, FaGithub, FaLine } from "react-icons/fa";
 import { TbDivide, TbMinusVertical } from "react-icons/tb";
@@ -12,6 +13,7 @@ interface HeaderProps {
 }
 
 export function Users({
+  id,
   login,
   name,
   bio,

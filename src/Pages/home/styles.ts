@@ -16,25 +16,76 @@ export const Container = styled.div`
   .container {
     background: ${(props) => props.theme.colors.secondary};
     width: 100%;
-    height: calc(100vh - 10rem);
-    max-height: calc(100vh - 10rem);
+    height: calc(100vh - 5rem);
+    max-height: calc(100vh - 5rem);
     align-items: center;
     margin: auto;
     border-radius: 20px;
   }
+
+  /* modal */
+  .MuiTable-root {
+    max-height: 50vh;
+    height: 50vh;
+    overflow-x: hidden;
+  }
+  .MuiTableBody-root {
+    overflow-y: auto;
+  }
+  .react-modal {
+    .tbody-container {
+      max-height: 54vh;
+      height: 54vh;
+      border-top: 2px #f2f2f2 solid;
+      width: 98.3%;
+      margin: 10px;
+      overflow-y: auto;
+      overflow-y: auto;
+      background: red;
+      ::-webkit-scrollbar {
+        width: 10px;
+      }
+      ::-webkit-scrollbar-thumb {
+        border-radius: 10px;
+        background-color: #00000001;
+      }
+      ::-webkit-scrollbar-track {
+        background-color: red;
+      }
+    }
+  }
+
+  .tabela-1 {
+    background: #197781;
+    ::-webkit-scrollbar {
+      width: 10px;
+    }
+    ::-webkit-scrollbar-thumb {
+      border-radius: 10px;
+      background-color: #00000001;
+    }
+    ::-webkit-scrollbar-track {
+      background-color: #fff;
+    }
+  }
+  .card-body-user {
+    height: 89%;
+    align-items: center;
+    margin: auto;
+  }
 `;
 
 export const Card = styled.div`
-  margin: 2rem;
+  margin: auto;
   border-radius: 20px;
   max-width: 400px;
   height: auto;
-  max-height: 100%;
-  margin-top: 1rem;
+  max-height: 90%;
+
   padding-bottom:1.5rem;
   align-items: center;
   justify-content: center;
-  margin: auto;
+
   background: ${(props) => props.theme.colors.primary};
   color: ${(props) => props.theme.colors.white};
   font-family: "Poppins", Helvetica, Arial, serif;
@@ -53,7 +104,7 @@ export const Card = styled.div`
     background: ${(props) => props.theme.colors.info};
     color: ${(props) => props.theme.colors.white};
     margin-top: -1rem;
-
+    margin-bottom: 1rem;
   }
   .card-content {
     border-radius: 20px;

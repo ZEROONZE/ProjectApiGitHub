@@ -5,6 +5,8 @@ import Modal from "react-modal";
 import { Sliderbar } from "./components/Menu/Sliderbar";
 import "react-toastify/dist/ReactToastify.css";
 import { Home } from "./Pages/home";
+import DataGridDemo from "./Pages/TESTE";
+import { Repositorys } from "./components/Repositorys";
 Modal.setAppElement("#root");
 function App() {
   return (
@@ -13,6 +15,8 @@ function App() {
       <Sliderbar>
         <Routes>
           <Route path="/home" element={<Home />} />
+          <Route path="/teste" element={<DataGridDemo />} />
+          <Route path="/repo" element={<Repositorys />} />
         </Routes>
       </Sliderbar>
     </BrowserRouter>

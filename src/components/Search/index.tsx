@@ -6,14 +6,14 @@ import { Container } from "./styles";
 
 type SearchProps = {
   loadUser: (userName: string) => Promise<void>;
-  handleOpenModalView: (userName: string) => Promise<void>;
+  // handleOpenModalView: (userName: string) => Promise<void>;
   handleClick: (userName: string) => Promise<void>;
 };
 interface KeyboardEvent {
   key: string;
 }
 
-export const Search = ({ loadUser, handleOpenModalView }: SearchProps) => {
+export const Search = ({ loadUser }: SearchProps) => {
   const [userName, setUserName] = useState("");
 
   // function to search using the ENTER key.
@@ -24,7 +24,7 @@ export const Search = ({ loadUser, handleOpenModalView }: SearchProps) => {
   };
 
   const handleClick = () => {
-    handleOpenModalView(userName);
+    // handleOpenModalView(userName);
     loadUser(userName);
   };
 
